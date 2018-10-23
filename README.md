@@ -4,7 +4,7 @@
 
 Composer: Laravel などのPHPコードの取得に必要
 
-https://getcomposer.org/doc/00-intro.md
+https://getcomposer.org/
 
 virtualbox : 仮想環境の構築に必要
 
