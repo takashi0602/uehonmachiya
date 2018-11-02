@@ -1,5 +1,3 @@
-
-
 <heaader>
     <nav>
         <h1>入庫先名</h1>
@@ -9,4 +7,3 @@
         </ul>
     </nav>
 </heaader>
-
