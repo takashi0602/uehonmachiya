@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>ヘッダー</h1>
 <form action="">
     <tr>
@@ -16,3 +17,14 @@
 
     </tr>
 </form>
+=======
+<heaader>
+    <nav>
+        <h1>入庫先名</h1>
+        <ul>
+            <li><a href="{{ url("/supplier/ordering"}}">発注一覧</a></li>
+            <li><a href="{{ url("/supplier/shipped") }}">出庫済み一覧</a></li>
+        </ul>
+    </nav>
+</heaader>
+>>>>>>> 6266a8004a0aba659cfe2b8eb4c35e120b6eeb6c
