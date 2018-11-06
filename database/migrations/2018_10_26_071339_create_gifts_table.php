@@ -16,7 +16,7 @@ class CreateGiftsTable extends Migration
         Schema::create('gifts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code');
-            $table->string('point');
+            $table->integer('point');
             $table->timestamps();
         });
     }
