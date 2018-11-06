@@ -1,3 +1,5 @@
+@extends('admin.layouts.app')
+@section('content')
 <h1>発注処理</h1>
 
 <div>入庫先名</div>
@@ -17,3 +19,4 @@
 <input type="button" value="追加">
 
 <div><input type="button" value="発注"></div>
+@endsection

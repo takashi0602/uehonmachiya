@@ -1,3 +1,5 @@
+@extends('admin.layouts.app')
+@section('content')
 <h1>入庫一覧</h1>
 
 <div>▼詳細検索</div>
@@ -23,6 +25,6 @@
     <li><a href="">X(最後のページ)</a></li>
 
 </ul>
-
+@endsection
 
 
