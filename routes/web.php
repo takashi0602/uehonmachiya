@@ -122,6 +122,11 @@ Route::prefix('admin')->group(function () {
     return view('admin.rank');
   });
 
+  // お問い合わせ一覧
+    Route::get('/contact', function () {
+        return view('admin.contact');
+    });
+
 });
 
 // 入庫先
