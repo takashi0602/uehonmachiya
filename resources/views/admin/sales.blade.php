@@ -1,3 +1,5 @@
+@extends('admin.layouts.app')
+@section('content')
 <h1>売上一覧</h1>
 <th>
     <tr>NO.1(会員番号)</tr>
@@ -12,3 +14,4 @@
 <input type="button"value="1">
 <input type="button"value="2">
 <input type="button"value=".....X(最後のページ)">
+    @endsection

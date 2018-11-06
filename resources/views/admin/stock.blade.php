@@ -1,3 +1,5 @@
+@extends('admin.layouts.app')
+@section('content')
 <h1>在庫一覧</h1>
 
 <div><a href="http://127.0.0.1:8000/admin/ordering/process">発注処理をする</a></div>
@@ -26,3 +28,4 @@
     <li><a href="">X(最後のページ)</a></li>
 
 </ul>
+    @endsection
