@@ -1,3 +1,5 @@
+@extends('admin.layouts.app')
+@section('content')
 <h1>出庫詳細</h1>
 <table>
 
@@ -11,3 +13,4 @@
 
 </table>
 <input type="button" value="戻る">
+    @endsection

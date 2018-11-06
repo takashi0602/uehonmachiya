@@ -1,3 +1,5 @@
+@extends('admin.layouts.app')
+@section('content')
 <h1>お問い合わせ一覧</h1>
 
 <div>▼詳細検索</div>
@@ -23,3 +25,4 @@
     </tr>
 
 </table>
+    @endsection
