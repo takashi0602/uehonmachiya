@@ -1,3 +1,5 @@
+@extends('admin.layouts.app')
+@section('content')
 <h1>売上ランキング</h1>
 
 
@@ -16,3 +18,4 @@
     </tr>
 
 </table>
+    @endsection

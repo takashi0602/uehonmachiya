@@ -1,3 +1,6 @@
+@extends('admin.layouts.app')
+@section('content')
+
 <h1>発注一覧</h1>
 <table border="2" rules="all">
     <tr>
@@ -16,14 +19,10 @@
         <td></td>
         <th>詳細</th>
     </tr>
+    @endsection
 
 
 </table>
 
 
-<ul>
-    <li><a href="">1</a></li>
-    <li><a href="">2</a></li>
-    <li><a href="">X(最後のページ)</a></li>
 
-</ul>
