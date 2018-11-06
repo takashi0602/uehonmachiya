@@ -1,3 +1,5 @@
+@extends('supplier.layouts.app')
+@section ('content')
 <h1>発注詳細</h1>
 
 
@@ -18,7 +20,5 @@
 <br>
     <input type="button" value="戻る">
 
-
-
     <input type="button" value="出庫する">
-
+@endsection
