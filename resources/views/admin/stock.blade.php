@@ -6,26 +6,31 @@
 
 <div>▼詳細検索</div>
 
-<table border="2" rules="all" >
+
+
+
+<table class="table">
+    <thead>
     <tr>
-        <th>No.(商品番号)</th>
-        <th>商品名</th>
-        <th>在庫数</th>
-        <th>安全在庫数</th>
+        <th scope="col">NO.(商品番号)</th>
+        <th scope="col">商品名</th>
+        <th scope="col">在庫数</th>
+        <th scope="col">安全在庫数</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
-        <td>1</td>
+        <th scope="row">1</th>
         <td>C++プログラミング入門</td>
         <td>20</td>
         <td>5</td>
     </tr>
-
+    <tr>
+        <th scope="row">2</th>
+        <td>java入門</td>
+        <td>12</td>
+        <td>3</td>
+    </tr>
+    </tbody>
 </table>
-
-<ul>
-    <li><a href="">1</a></li>
-    <li><a href="">2</a></li>
-    <li><a href="">X(最後のページ)</a></li>
-
-</ul>
     @endsection
