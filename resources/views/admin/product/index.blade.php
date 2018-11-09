@@ -2,21 +2,50 @@
 @section('content')
 <h1>商品一覧</h1>
 <tr>
-    <th>商品の追加</th>
-    <th>商品の編集</th>
+    <th><a href="{{ url('/admin/product/add') }}">商品の追加</a></th>
+    <th><a href="{{ url('/admin/product/edit') }}">商品の編集</a></th>
 </tr>
 
-<tr>
-    <th>NO.(商品番号)</th>
-    <th>出版社</th>
-    <th>著者</th>
-    <th>商品名</th>
-    <th>仕入価格</th>
-    <th>販売価格</th>
-    <th>入庫先名</th>
 
-</tr><br>
-<input type="button" value="1">
-<input type="button" value="2">
-<th>.........</th>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">NO.(商品番号)</th>
+        <th scope="col">著者</th>
+        <th scope="col">商品名</th>
+        <th scope="col">仕入価格</th>
+        <th scope="col">販売価格</th>
+        <th scope="col">入庫先名</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
 @endsection

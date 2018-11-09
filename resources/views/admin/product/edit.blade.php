@@ -1,4 +1,8 @@
-<h1>商品変更</h1>
+@extends('admin.layouts.app')
+@section('content')
+<h1>商品の編集</h1>
+
+
 <p1>商品名</p1><input type="text" name="shouhinmei" size="30" maxlength="20"><br>
 <br>
 <p1>出版者</p1><input type="text" name="shupansha" size="30" maxlength="20"><br>
@@ -15,3 +19,4 @@
 <br>
 <br>
 <input type="reset"name="cancel">   <input type="button"value="変更">
+@endsection
