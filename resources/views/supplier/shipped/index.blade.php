@@ -1,6 +1,6 @@
-@extents(supplier.layouts.app)
+@extends('supplier.layouts.app')
 
-@section(content)
+@section('content')
 <h1>出庫済み一覧</h1>
 
 <table>
