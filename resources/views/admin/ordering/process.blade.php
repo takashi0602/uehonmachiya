@@ -6,7 +6,7 @@
 <form action="">
 <select name="ordering" id="">
     <option value="OIC">OIC問屋</option>
-    <option value="OIC">あ</option>
+    <option value="OIC">test</option>
 </select>
 </form>
 

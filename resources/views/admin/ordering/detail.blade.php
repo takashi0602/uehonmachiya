@@ -3,12 +3,32 @@
 @section('content')
 <h1>発注詳細</h1>
 
-<div>発注番号</div>
-<div>発注日</div>
-<div>入庫先</div>
-<div>発注者</div>
-<div>商品番号</div><div>商品名</div><div>個数</div>
-<div>合計金額</div>
-<input type="button" value="戻る">
 
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">発注番号</th>
+        <th scope="col">発注日</th>
+        <th scope="col">入庫日</th>
+        <th scope="col">発注者</th>
+        <th scope="col">商品番号</th>
+        <th scope="col">合計金額</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    </tbody>
+</table>
+<a href="{{ url('/admin/ordering') }}"><input type="button" value="戻る"></a>
 @endsection
