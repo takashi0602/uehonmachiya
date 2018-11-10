@@ -3,28 +3,36 @@
 <h1>入庫一覧</h1>
 
 <div>▼詳細検索</div>
-
-<table border="2" rules="all" >
+<table class="table">
+    <thead>
     <tr>
-        <th>No.(入庫番号)</th>
-        <th>入庫日</th>
-        <th>発注コード</th>
-        <th> </th>
+        <th scope="col">No.(入庫番号)</th>
+        <th scope="col">入庫日</th>
+        <th scope="col">発注コード</th>
+        <th scope="col"> </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td></td>
+        <td></td>
+        <th><a href="{{ url('/admin/arrival/detail') }}">詳細</a></th>
     </tr>
     <tr>
+        <th scope="row">2</th>
         <td></td>
         <td></td>
-        <td></td>
-       <th>詳細</th>
+        <th><a href="{{ url('/admin/arrival/detail') }}">詳細</a></th>
     </tr>
-
+    <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
 </table>
-<ul>
-    <li><a href="">1</a></li>
-    <li><a href="">2</a></li>
-    <li><a href="">X(最後のページ)</a></li>
-
-</ul>
 @endsection
 
 
