@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// 管理者
 Route::get('/home', 'HomeController@index')->name('home');
 
+// 管理者
 Route::prefix('admin')->group(function () {
 
   // ログイン
@@ -160,6 +160,8 @@ Route::prefix('supplier')->group(function () {
 });
 
 // 会員
-Route::get('/top', function () {
-  return view('user.top');
-});
+Route::get('/top', 'ProductController@index');
+
+Route::get('login', 'Auth\LoginController@userLoginForm')->name('login');
+
+Route::get('register', 'Auth\RegisterController@userRegistrationForm')->name('register');

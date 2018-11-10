@@ -21,8 +21,7 @@ class CreateSuppliersTable extends Migration
             $table->string('password');
             $table->integer('postal');
             $table->string('address');
-            $table->string('tel')->nullable();
-            $table->string('fax')->nullable();
+            $table->string('tel');
             $table->timestamps();
         });
     }
