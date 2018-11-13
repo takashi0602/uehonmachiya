@@ -117,6 +117,8 @@ Route::prefix('admin')->group(function () {
     return view('admin.sales');
   });
 
+
+
   // ランキング一覧
   Route::get('/rank', function () {
     return view('admin.rank');
