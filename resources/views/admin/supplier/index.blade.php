@@ -2,6 +2,7 @@
 @section('content')
 <h1>入庫先一覧</h1>
 <div><a href="http://127.0.0.1:8000/admin/supplier/add">入庫先の追加</a></div>
+<div><a href="http://127.0.0.1:8000/admin/supplier/edit">入庫先の編集</a></div>
 <div>▼詳細検索</div>
 
 
