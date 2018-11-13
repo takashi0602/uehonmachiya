@@ -135,9 +135,9 @@ Route::prefix('admin')->group(function () {
 Route::prefix('supplier')->group(function () {
 
   // ログイン
-  Route::get('/login', function () {
-    return view('supplier.login');
-  });
+//  Route::get('/login', function () {
+//    return view('supplier.login');
+//  });
 
   // 発注一覧
   Route::get('/ordering', function () {
