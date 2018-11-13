@@ -12,11 +12,62 @@
 
 <div>商品名</div>
 <input type="text" name="商品名">
-
+<select name="ordering" id="">
+    <option value="OIC">OIC問屋</option>
+    <option value="OIC">あ</option>
+</select>
 <div>個数</div>
 <input type="text" name="個数">
 
 <input type="button" value="追加">
 
 <div><input type="button" value="発注"></div>
+
+
+<form action="">
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInputsyohin">入庫先名</label>
+
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="exampleInputsyohin" aria-describedby="syohinHelp" placeholder="">
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput" >出版社</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">著者</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">仕入単価</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">販売単価</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">入庫先名</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">安全在庫数</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" pull-right>リセット</button>
+    <button type="submit" class="btn btn-primary" pull-right>変更</button>
+</form>
 @endsection
