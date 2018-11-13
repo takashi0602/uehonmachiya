@@ -1,1 +1,5 @@
-<h1>マイページ</h1>
+@extends('user.layouts.app')
+
+@section('content')
+  <h1>マイページ</h1>
+@endsection
