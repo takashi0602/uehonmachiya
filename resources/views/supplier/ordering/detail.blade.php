@@ -2,57 +2,79 @@
 @section ('content')
 <h1>発注詳細</h1>
 
+<div class="container">
+    <div class="row">
+        <div class="pb-3 col">
+            発注日
+        </div>
+        <div class="col">
+            ２０１８年１２月１日
+        </div>
+    </div>
 
-<table class="table">
-    <thead>
-    <tr>
-        <td>発注日</td>
-        <td>２０１８年　１２月　１日</td>
-        <th scope="col"></th>
-        <th scope="col"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>発注コード</td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>商品コード</td>
-        <td>商品名</td>
-        <td>個数</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>203</td>
-        <td>羅生門</td>
-        <td>1</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>発注先名</td>
-        <td>上本町屋</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>発注先住所</td>
-        <td>〒000-0000</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>大阪府</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>合計金額</td>
-        <td>１０００円</td>
-        <td></td>
-    </tr>
-    </tbody>1
-</table>
+    <div class="row">
+        <div class="pb-3 col">
+            発注コード
+        </div>
+        <div class="col">
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="pb-3 col">
+        商品コード
+    </div>
+    <div class="col">
+        商品名
+    </div>
+    <div class="col">
+        個数
+    </div>
+
+</div>
+    <div class="row">
+        <div class="pb-3 col">
+            ２０３
+        </div>
+        <div class="col">
+            羅生門
+        </div>
+        <div class="col">
+            １
+        </div>
+    </div>
+    <div class="row">
+        <div class="pb-3 col">
+            発注先名
+        </div>
+        <div class="my-8 col-sm-8">
+            上本町屋
+        </div>
+    </div>
+    <div class="row">
+        <div class="pb-3 col">
+            発注先住所
+        </div>
+        <div class="my-8 col-sm-8">
+            〒000-0000
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="pb-3 my-8 col-sm-8">
+            大阪府
+        </div>
+    </div>
+    <div class="row">
+        <div class="pb-3 col">
+            合計金額
+        </div>
+        <div class="my-8 col-sm-8">
+            １０００円
+        </div>
+    </div>
 
 
 
