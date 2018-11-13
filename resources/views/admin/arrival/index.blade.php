@@ -32,6 +32,7 @@
         <td></td>
     </tr>
     </tbody>
+
 </table>
 @endsection
 

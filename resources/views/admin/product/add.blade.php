@@ -1,16 +1,51 @@
 @extends('admin.layouts.app')
 @section('content')
 <h1>商品追加</h1>
-<table>
 
-    <div>商品名  <input type="text"></div>
-    <div>出版社<input type="text"></div>
-    <div>著者<input type="text"></div>
-    <div>仕入れ単価<input type="text"></div>
-    <div>販売単価<input type="text"></div>
-    <div>入庫先名<input type="text"></div>
-    <div>安全在庫数<input type="text"></div>
 
-</table>
-<input type="button" value="追加">
+<form >
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInputsyohin">商品名</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="exampleInputsyohin" aria-describedby="syohinHelp" placeholder="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput" >出版社</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">著者</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+    </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">仕入単価</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+    </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">販売単価</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+    </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">入庫先名</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+    </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4" for="exampleInput">安全在庫数</label>
+        <div class="col-sm-8">
+        <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" pull-right>追加</button>
+</form>
     @endsection
