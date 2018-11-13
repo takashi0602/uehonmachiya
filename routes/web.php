@@ -167,3 +167,24 @@ Route::get('/top', 'ProductController@index');
 Route::get('login', 'Auth\LoginController@userLoginForm')->name('login');
 
 Route::get('register', 'Auth\RegisterController@userRegistrationForm')->name('register');
+
+/*
+|--------------------------------------------------------------------------
+| 3) Admin 認証不要
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'supplier'], function() {
+  Route::get('/',         function () { return redirect('/supplier/home'); });
+  Route::get('login',     'Supplier\LoginController@showLoginForm')->name('supplier.login');
+  Route::post('login',    'Supplier\LoginController@login');
+});
+
+/*
+|--------------------------------------------------------------------------
+| 4) Admin ログイン後
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {
+  Route::post('logout',   'Supplier\LoginController@logout')->name('supplier.logout');
+  Route::get('home',      'Supplier\HomeController@index')->name('supplier.home');
+});

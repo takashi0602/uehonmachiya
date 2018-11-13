@@ -22,6 +22,7 @@ class CreateSuppliersTable extends Migration
             $table->string('postal');
             $table->string('address');
             $table->string('tel');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
