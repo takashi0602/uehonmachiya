@@ -172,12 +172,13 @@ Route::get('login', 'Auth\LoginController@userLoginForm')->name('login');
 Route::get('register', 'Auth\RegisterController@userRegistrationForm')->name('register');
 
 // カート
-Route::get('/cart', function () {
-  return view('user.cart.index');
-});
+Route::get('/cart', 'CartController@index');
 
 // カート追加
 Route::post('/cart/add', 'CartController@add');
+
+// カート削除
+Route::post('/cart/delete', 'CartController@delete');
 
 // 商品・お届け先確認
 Route::get('/confirm', function () {
