@@ -163,7 +163,7 @@ Route::prefix('supplier')->group(function () {
 
 // 会員
 // トップ
-Route::get('/top', 'ProductController@index');
+Route::get('/top', 'TopController@index');
 
 // ログイン
 Route::get('login', 'Auth\LoginController@userLoginForm')->name('login');
@@ -175,6 +175,9 @@ Route::get('register', 'Auth\RegisterController@userRegistrationForm')->name('re
 Route::get('/cart', function () {
   return view('user.cart.index');
 });
+
+// カート追加
+Route::post('/cart/add', 'CartController@add');
 
 // 商品・お届け先確認
 Route::get('/confirm', function () {
@@ -223,11 +226,17 @@ Route::get('/contact', function () {
 
 
 // マルチ認証
-Route::group(['prefix' => 'supplier'], function() {
-  Route::get('/',         function () { return redirect('/supplier/home'); });
-  Route::get('login',     'Supplier\LoginController@showLoginForm')->name('supplier.login');
-  Route::post('login',    'Supplier\LoginController@login');
-});
+//Route::group(['prefix' => 'supplier'], function() {
+//  Route::get('/',         function () { return redirect('/supplier/home'); });
+//  Route::get('login',     'Supplier\LoginController@showLoginForm')->name('supplier.login');
+//  Route::post('login',    'Supplier\LoginController@login');
+//});
+//
+//
+//Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {
+//  Route::post('logout',   'Supplier\LoginController@logout')->name('supplier.logout');
+//  Route::get('home',      'Supplier\HomeController@index')->name('supplier.home');
+//});
 
 
 Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {

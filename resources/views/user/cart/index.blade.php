@@ -26,5 +26,5 @@
     <div class="row">
   <div class="col-3"><a href="">商品を探す</a></div>
   <div class="col-3"><a href="">購入手続きに進む</a></div>
-    </div>
+</div>
 @endsection
