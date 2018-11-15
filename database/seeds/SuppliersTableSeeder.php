@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Supplier;
+use Illuminate\Support\Facades\Hash;
 
 class SuppliersTableSeeder extends Seeder
 {
@@ -45,7 +46,7 @@ class SuppliersTableSeeder extends Seeder
             'name' => $name[$i],
             'president' => $president[$i],
             'email' => $email[$i],
-            'password' => $password[$i],
+            'password' => Hash::make($password[$i]),
             'postal' => $postal[$i],
             'address' => $address[$i],
             'tel' => $tel[$i],
