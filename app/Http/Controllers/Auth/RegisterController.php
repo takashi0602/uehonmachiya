@@ -76,4 +76,8 @@ class RegisterController extends Controller
             'point' => 0,
         ]);
     }
+
+    public function userRegistrationForm() {
+        return view('user.auth.register');
+    }
 }

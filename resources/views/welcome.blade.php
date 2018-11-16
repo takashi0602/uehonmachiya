@@ -20,7 +20,7 @@
                 <a href="/admin/login">管理者</a>
             </div>
             <div>
-                <a href="/supplier/login">入庫先</a>
+                <a href="/supplier/ordering">入庫先</a>
             </div>
         </div>
     </body>

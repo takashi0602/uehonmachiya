@@ -19,10 +19,10 @@ class CreateSuppliersTable extends Migration
             $table->string('president');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('postal');
+            $table->string('postal');
             $table->string('address');
-            $table->string('tel')->nullable();
-            $table->string('fax')->nullable();
+            $table->string('tel');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
