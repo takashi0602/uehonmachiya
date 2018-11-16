@@ -46,7 +46,9 @@
                 <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary " >リセット</button>
-        <button type="submit" class="btn btn-primary" >変更</button>
+        <div class="text-right mr-4">
+            <button type="reset" class="btn btn-primary">リセット</button>
+            <button type="submit" class="btn btn-primary " >変更</button>
+        </div>
     </form>
 @endsection

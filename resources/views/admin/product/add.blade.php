@@ -47,6 +47,7 @@
         </div>
     </div>
     <div class="text-right mr-4">
+        <button type="reset" class="btn btn-primary">リセット</button>
         <button type="submit" class="btn btn-primary " >追加</button>
     </div>
 </form>

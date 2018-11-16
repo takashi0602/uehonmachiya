@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1>入庫先変更</h1>
 <p1>入庫先名</p1><input type="text" name="nyuukoname" size="30" maxlength="20"><br>
 <br>
@@ -16,7 +15,6 @@
 <br>
 <br>
 <input type="reset"value="リセット">   <input type="submit"value="変更">
-=======
 @extends('admin.layouts.app')
 @section('content')
         <h1>入庫先の変更</h1>
@@ -65,8 +63,10 @@
                     <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary " >リセット</button>
-            <button type="submit" class="btn btn-primary" >変更</button>
+            <div class="text-right mr-4">
+                <button type="reset" class="btn btn-primary">リセット</button>
+                <button type="submit" class="btn btn-primary " >変更</button>
+            </div>
         </form>
 @endsection
->>>>>>> da1cf008acabe0581671d747282c762e144684f6
+
