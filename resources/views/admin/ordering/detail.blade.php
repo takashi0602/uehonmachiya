@@ -3,37 +3,6 @@
 @section('content')
 
 <h1>発注詳細</h1>
-
-
-<<<<<<< HEAD
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">発注番号</th>
-        <th scope="col">発注日</th>
-        <th scope="col">入庫日</th>
-        <th scope="col">発注者</th>
-        <th scope="col">商品番号</th>
-        <th scope="col">合計金額</th>
-    </tr>
-
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-
-    </tbody>
-</table>
-<a href="{{ url('/admin/ordering') }}"><input type="button" value="戻る"></a>
-=======
     <div class="row">
         <div class="col-4">
             発注番号
@@ -88,5 +57,4 @@
 </div>
 
     <th><a href="{{ url('/admin/ordering') }}"><input type="button" class="btn btn-primary" value="戻る"></a></th>
->>>>>>> da1cf008acabe0581671d747282c762e144684f6
 @endsection
