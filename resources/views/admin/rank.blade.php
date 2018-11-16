@@ -4,47 +4,37 @@
 
 
 <table border="2" rules="all" >
-    <tr>
-        <th>順位</th>
-        <th>会員番号</th>
-        <th>名前</th>
-        <th>総合金額</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>大阪花子</td>
-        <td>1000</td>
-    </tr>
+
+
 
 </table>
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">順位</th>
+        <th scope="col">会員番号</th>
+        <th scope="col">名前</th>
+        <th scope="col">総合金額</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     </tbody>
 </table>
