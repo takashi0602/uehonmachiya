@@ -68,7 +68,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="pb-3 col">
+        <div class="pb-3 col">exit
+
             合計金額
         </div>
         <div class="my-8 col-sm-8">
