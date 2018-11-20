@@ -54,7 +54,6 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
                 <form action="/finish" method="post">
                   @csrf
-                  <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                   <button type="submit" class="btn btn-primary">購入</button>
                 </form>
               </div>
