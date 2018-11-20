@@ -112,6 +112,15 @@ class CartController extends Controller
 
   public function finish()
   {
+    //$order_id =
+    $orders = Cart::where('user_id', Auth::user()->id)->get();
+    dd($orders);
+    /*
+     * user_id, product_id, amount
+     */
+    foreach ($orders as $order) {
+      // ::create
+    }
     return redirect('/decision');
   }
 
