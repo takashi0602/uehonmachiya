@@ -17,6 +17,7 @@ class CreateGiftsTable extends Migration
             $table->increments('id');
             $table->string('code');
             $table->integer('point');
+            $table->boolean('use_flag')->default(0);
             $table->timestamps();
         });
     }

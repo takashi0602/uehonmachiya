@@ -76,7 +76,8 @@ class CartController extends Controller
     return redirect('/cart');
   }
 
-  public function confirm() {
+  public function confirm()
+  {
     $carts_id = array();
     $amount = array();
     $products = array();
@@ -107,5 +108,15 @@ class CartController extends Controller
       'total' => $total,
       'remaining_points' => $remaining_points
     ]);
+  }
+
+  public function finish()
+  {
+    return redirect('/decision');
+  }
+
+  public function decision()
+  {
+    return view('user.cart.decision');
   }
 }

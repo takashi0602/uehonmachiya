@@ -36,26 +36,27 @@
 
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          Launch demo modal
-        </button>
+        <a href="" data-target="#exampleModalCenter" data-toggle="modal">最終確認へ</a>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <div class="modal-header border-0">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                ...
+              <div class="modal-body text-left">
+                <p>※購入ボタンを押すと商品購入が確定されます。</p>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+              <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                <form action="/finish" method="post">
+                  @csrf
+                  <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                  <button type="button" class="btn btn-primary">購入</button>
+                </form>
               </div>
             </div>
           </div>
@@ -74,7 +75,7 @@
       </div>
     @endif
   @else
-    <p>商品がありません。</p>
+    <p class="text-danger">※商品がありません。</p>
     <div class="text-right">
       <a href="/cart">カートへ戻る</a>
     </div>

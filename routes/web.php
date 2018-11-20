@@ -183,15 +183,11 @@ Route::post('/cart/delete', 'CartController@delete');
 // 商品・お届け先確認
 Route::get('/confirm', 'CartController@confirm');
 
-// 最終確認
-Route::get('/final', function () {
-  return view('user.cart.final');
-});
+// 商品購入確定
+Route::post('/finish', 'CartController@finish');
 
 // 購入確定
-Route::get('/decision', function () {
-  return view('user.cart.decision');
-});
+Route::get('/decision', 'CartController@decision');
 
 // マイページ
 Route::get('/mypage', function () {
