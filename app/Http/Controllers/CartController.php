@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Auth;
+use Illuminate\Support\Collection;
 
 class CartController extends Controller
 {
@@ -31,6 +33,7 @@ class CartController extends Controller
     $products = array();
     $sales_price = array();
     $carts = Cart::where('user_id', Auth::user()->id)->get();
+    $point = User::select('point')->where('id', Auth::user()->id)->first();
     foreach ($carts as $cart) {
       $carts_id[] = $cart->id;
       $amount[] = $cart->amount;
@@ -42,13 +45,18 @@ class CartController extends Controller
         $sales_price[] = $product->sales_price * $amount[$i++];
       }
     }
+    $total = array_sum($sales_price);
+    $remaining_points = $point->point - $total;
     $count = 0;
     return view('user.cart.index', [
       'products' => $products,
       'carts_id' => $carts_id,
       'amount' => $amount,
       'count' => $count,
-      'sales_price' => $sales_price
+      'sales_price' => $sales_price,
+      'point' => $point,
+      'total' => $total,
+      'remaining_points' => $remaining_points
     ]);
   }
 
@@ -66,5 +74,38 @@ class CartController extends Controller
   {
     Cart::destroy($request->cart_id);
     return redirect('/cart');
+  }
+
+  public function confirm() {
+    $carts_id = array();
+    $amount = array();
+    $products = array();
+    $sales_price = array();
+    $carts = Cart::where('user_id', Auth::user()->id)->get();
+    $point = User::select('point')->where('id', Auth::user()->id)->first();
+    foreach ($carts as $cart) {
+      $carts_id[] = $cart->id;
+      $amount[] = $cart->amount;
+      $products[] = Product::where('id', $cart->product_id)->first();
+    }
+    if(!empty($products)) {
+      $i = 0;
+      foreach ($products as $product) {
+        $sales_price[] = $product->sales_price * $amount[$i++];
+      }
+    }
+    $total = array_sum($sales_price);
+    $remaining_points = $point->point - $total;
+    $count = 0;
+    return view('user.cart.confirm', [
+      'products' => $products,
+      'carts_id' => $carts_id,
+      'amount' => $amount,
+      'count' => $count,
+      'sales_price' => $sales_price,
+      'point' => $point,
+      'total' => $total,
+      'remaining_points' => $remaining_points
+    ]);
   }
 }
