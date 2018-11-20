@@ -42,6 +42,8 @@ class StockTableSeeder extends Seeder
                     'product_id' => $product_id[$i],
                     'amount' => $amount[$i],
                     'safety' => $safety[$i],
+                    'created_at' => new DateTime(),
+                    'updated_at' => new DateTime()
                 ]);
             }
         }
