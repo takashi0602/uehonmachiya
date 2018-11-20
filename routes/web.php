@@ -162,28 +162,82 @@ Route::prefix('supplier')->group(function () {
 });
 
 // 会員
-Route::get('/top', 'ProductController@index');
+// トップ
+Route::get('/top', 'TopController@index');
 
+// ログイン
 Route::get('login', 'Auth\LoginController@userLoginForm')->name('login');
 
+// 登録
 Route::get('register', 'Auth\RegisterController@userRegistrationForm')->name('register');
 
-/*
-|--------------------------------------------------------------------------
-| 3) Admin 認証不要
-|--------------------------------------------------------------------------
-*/
-Route::group(['prefix' => 'supplier'], function() {
-  Route::get('/',         function () { return redirect('/supplier/home'); });
-  Route::get('login',     'Supplier\LoginController@showLoginForm')->name('supplier.login');
-  Route::post('login',    'Supplier\LoginController@login');
+// カート
+Route::get('/cart', 'CartController@index');
+
+// カート追加
+Route::post('/cart/add', 'CartController@add');
+
+// カート削除
+Route::post('/cart/delete', 'CartController@delete');
+
+// 商品・お届け先確認
+Route::get('/confirm', 'CartController@confirm');
+
+// 最終確認
+Route::get('/final', function () {
+  return view('user.cart.final');
 });
 
-/*
-|--------------------------------------------------------------------------
-| 4) Admin ログイン後
-|--------------------------------------------------------------------------
-*/
+// 購入確定
+Route::get('/decision', function () {
+  return view('user.cart.decision');
+});
+
+// マイページ
+Route::get('/mypage', function () {
+  return view('user.mypage.index');
+});
+
+// 個人情報編集
+Route::get('/mypage/edit', function () {
+  return view('user.mypage.edit');
+});
+
+// 注文状況
+Route::get('/mypage/order', function () {
+  return view('user.mypage.order');
+});
+
+// 購入履歴
+Route::get('/mypage/bought', function () {
+  return view('user.mypage.bought');
+});
+
+// ギフトコード入力
+Route::get('/mypage/gift', function () {
+  return view('user.mypage.gift');
+});
+
+// お問い合わせ
+Route::get('/contact', function () {
+  return view('user.contact');
+});
+
+
+// マルチ認証
+//Route::group(['prefix' => 'supplier'], function() {
+//  Route::get('/',         function () { return redirect('/supplier/home'); });
+//  Route::get('login',     'Supplier\LoginController@showLoginForm')->name('supplier.login');
+//  Route::post('login',    'Supplier\LoginController@login');
+//});
+//
+//
+//Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {
+//  Route::post('logout',   'Supplier\LoginController@logout')->name('supplier.logout');
+//  Route::get('home',      'Supplier\HomeController@index')->name('supplier.home');
+//});
+
+
 Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {
   Route::post('logout',   'Supplier\LoginController@logout')->name('supplier.logout');
   Route::get('home',      'Supplier\HomeController@index')->name('supplier.home');

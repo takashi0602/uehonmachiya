@@ -1,22 +1,54 @@
 @extends('admin.layouts.app')
 @section('content')
-<h1>商品の編集</h1>
+    <h1>商品の変更</h1>
 
 
-<p1>商品名</p1><input type="text" name="shouhinmei" size="30" maxlength="20"><br>
-<br>
-<p1>出版者</p1><input type="text" name="shupansha" size="30" maxlength="20"><br>
-<br>
-<p1>著者</p1><input type="text" name="chosha" size="30" maxlength="20"><br>
-<br>
-<p1>仕入れ単価</p1><input type="text" name="shiiretanka" size="30" maxlength="20"><br>
-<br>
-<p1>販売単価</p1><input type="text" name="hanbaitanka" size="30" maxlength="20"><br>
-<br>
-<p1>入庫先名</p1><input type="text" name="nyukosakimei" size="30" maxlength="20"><br>
-<br>
-<p1>安全在庫数</p1><input type="text" name="anzenzaikosu" size="30" maxlength="20"><br>
-<br>
-<br>
-<input type="reset"name="cancel">   <input type="button"value="変更">
+    <form >
+        <div class="form-group">
+            <label class="col-sm-4" for="exampleInputsyohin">商品名</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="exampleInputsyohin" aria-describedby="syohinHelp" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4" for="exampleInput" >出版社</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4" for="exampleInput">著者</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4" for="exampleInput">仕入単価</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4" for="exampleInput">販売単価</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4" for="exampleInput">入庫先名</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4" for="exampleInput">安全在庫数</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+            </div>
+        </div>
+        <div class="text-right mr-4">
+            <button type="reset" class="btn btn-primary">リセット</button>
+            <button type="submit" class="btn btn-primary " >変更</button>
+        </div>
+    </form>
 @endsection

@@ -52,8 +52,8 @@ class ProductsTableSeeder extends Seeder
 
         for($i = 0; $i < 3; $i++){
             DB::table('products')->insert([
-              'categorise_id' => $categorise_id[$i],
-              'suppliers_id' => $suppliers_id[$i],
+              'category_id' => $categorise_id[$i],
+              'supplier_id' => $suppliers_id[$i],
               'name' => $name[$i],
               'author' => $author[$i],
               'img' => $img[$i],

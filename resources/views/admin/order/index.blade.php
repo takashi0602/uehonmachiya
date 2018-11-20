@@ -24,9 +24,10 @@
         <th><a href="{{ url('/admin/order/detail') }}">詳細</a></th>
     </tr>
     <tr>
-        <th ="row">2</th>
+        <th 2="row">2</th>
         <td>18</td>
         <td>nanba</td>
+        <th></th>
     </tr>
     </tbody>
 </table>
