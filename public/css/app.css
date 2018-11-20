@@ -10480,5 +10480,7 @@ a.text-dark:focus {
 
 .product-cursor {
   cursor: pointer;
+  width: 250px;
+  word-break: break-all;
 }
 

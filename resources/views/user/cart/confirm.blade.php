@@ -55,7 +55,7 @@
                 <form action="/finish" method="post">
                   @csrf
                   <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                  <button type="button" class="btn btn-primary">購入</button>
+                  <button type="submit" class="btn btn-primary">購入</button>
                 </form>
               </div>
             </div>

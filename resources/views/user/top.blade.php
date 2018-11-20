@@ -4,9 +4,9 @@
 <h1>トップ</h1>
 <div class="d-flex flex-wrap justify-content-between">
   @foreach($products as $product)
-    <div class="mx-4 product-cursor" data-toggle="modal" data-target="#Modal{{ $product->id }}">
+    <div class="mx-4 product-cursor mb-5" data-toggle="modal" data-target="#Modal{{ $product->id }}">
       <div class="product-img mb-3" style="background-image: url('{{ $product->img }}');"></div>
-      <h5 class="mb-0">{{ $product->name }}</h5>
+      <h5 class="mb-0 word-break">{{ $product->name }}</h5>
       <div>{{ $product->author }}</div>
       <div class="text-right">{{ $product->sales_price }}<span>円</span></div>
     </div>
