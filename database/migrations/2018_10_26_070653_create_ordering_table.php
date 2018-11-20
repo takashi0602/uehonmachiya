@@ -16,10 +16,10 @@ class CreateOrderingTable extends Migration
         Schema::create('ordering', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('ordering_id');
-            $table->integer('products_id')->unsigned();
-            $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade');
-            $table->integer('suppliers_id')->unsigned();
-            $table->foreign('suppliers_id')->references('id')->on('suppliers')->onDelete('cascade');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->integer('supplier_id')->unsigned();
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
             $table->integer('amount');
             $table->boolean('status');
             $table->timestamps();
