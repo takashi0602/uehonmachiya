@@ -181,9 +181,7 @@ Route::post('/cart/add', 'CartController@add');
 Route::post('/cart/delete', 'CartController@delete');
 
 // 商品・お届け先確認
-Route::get('/confirm', function () {
-  return view('user.cart.confirm');
-});
+Route::get('/confirm', 'CartController@confirm');
 
 // 最終確認
 Route::get('/final', function () {

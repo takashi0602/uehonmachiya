@@ -11,7 +11,7 @@
             <input type="hidden" value="{{ $carts_id[$count] }}" name="cart_id">
             <h5 class="col mb-0">{{ $product->name }}</h5>
             <div class="col-auto">
-              <span>{{ $amount[$count] }}冊</span>
+              <span class="mr-3">{{ $amount[$count] }}冊</span>
               <span>{{ $sales_price[$count++] }}円</span>
             </div>
             <div class="col-auto">
@@ -22,12 +22,12 @@
       </div>
     @endforeach
     <div class="text-right">
-      <span>ご利用可能ポイント</span>
-      <span>{{ $point->point }}pt</span>
-    </div>
-    <div class="text-right">
       <span>合計</span>
       <span>{{ $total }}円</span>
+    </div>
+    <div class="text-right">
+      <span>ご利用可能ポイント</span>
+      <span>{{ $point->point }}pt</span>
     </div>
     <div class="text-right mb-3">
       <span>購入後ポイント</span>
