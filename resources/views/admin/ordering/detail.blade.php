@@ -3,8 +3,6 @@
 @section('content')
 
 <h1>発注詳細</h1>
-
-
     <div class="row">
         <div class="col-4">
             発注番号
