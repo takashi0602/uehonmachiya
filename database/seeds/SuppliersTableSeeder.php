@@ -14,11 +14,11 @@ class SuppliersTableSeeder extends Seeder
     public function run()
     {
         $name = [
-          '高橋問屋', '飛田問屋', '市丸問屋'
+          '山田問屋', '田中問屋', '松田問屋'
         ];
 
         $president = [
-          '高橋政人', '飛田貴敏', '市丸紀美広'
+          '山田優', '田中宏', '松田美優紀'
         ];
 
         $email = [
