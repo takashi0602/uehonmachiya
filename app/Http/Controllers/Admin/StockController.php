@@ -13,7 +13,7 @@ class StockController extends Controller
   {
     $stocks = Stock::all();
     return view('admin.stock', [
-      'stock' => $stocks
+      'stocks' => $stocks
     ]);
   }
 }

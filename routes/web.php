@@ -59,9 +59,7 @@ Route::prefix('admin')->group(function () {
   });
 
   // 注文一覧
-  Route::get('/order', function () {
-    return view('admin.order.index');
-  });
+  Route::get('/order', 'Admin\OrderController@index');
 
   // 注文詳細
   Route::get('/order/detail', function () {
@@ -69,9 +67,7 @@ Route::prefix('admin')->group(function () {
   });
 
   // 発注一覧
-  Route::get('/ordering', function () {
-    return view('admin.ordering.index');
-  });
+  Route::get('/ordering', 'Admin\OrderingController@index');
 
   // 発注詳細
   Route::get('/ordering/detail', function () {
