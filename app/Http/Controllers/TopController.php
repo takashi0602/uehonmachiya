@@ -9,7 +9,7 @@ class TopController extends Controller
 {
   public function index()
   {
-    $products = Product::select('*')->get();
+    $products = Product::all();
     return view('user.top', [
       'products' => $products
     ]);

@@ -29,10 +29,7 @@ class CartController extends Controller
    */
   public function index()
   {
-    $carts_id = array();
-    $amount = array();
-    $products = array();
-    $sales_price = array();
+    $carts_id = $amount = $products = $sales_price = [];
     $carts = Cart::where('user_id', Auth::user()->id)->get();
     $point = User::select('point')->where('id', Auth::user()->id)->first();
     foreach ($carts as $cart) {
@@ -79,10 +76,7 @@ class CartController extends Controller
 
   public function confirm()
   {
-    $carts_id = array();
-    $amount = array();
-    $products = array();
-    $sales_price = array();
+    $carts_id = $amount = $products = $sales_price = [];
     $carts = Cart::where('user_id', Auth::user()->id)->get();
     $point = User::select('point')->where('id', Auth::user()->id)->first();
     foreach ($carts as $cart) {

@@ -28,9 +28,7 @@ Route::prefix('admin')->group(function () {
   });
 
   // 商品一覧
-  Route::get('/product', function () {
-    return view('admin.product.index');
-  });
+  Route::get('/product', 'Admin\ProductController@index');
 
   // 商品追加
   Route::get('/product/add', function () {
@@ -43,9 +41,7 @@ Route::prefix('admin')->group(function () {
   });
 
   // 入庫先一覧
-  Route::get('/supplier', function () {
-    return view('admin.supplier.index');
-  });
+  Route::get('/supplier', 'Admin\SupplierController@index');
 
   // 入庫先追加
   Route::get('/supplier/add', function () {
@@ -108,9 +104,7 @@ Route::prefix('admin')->group(function () {
   });
 
   // 在庫一覧
-  Route::get('/stock', function () {
-    return view('admin.stock');
-  });
+  Route::get('/stock', 'Admin\StockController@index');
 
   // 売り上げ一覧
   Route::get('/sales', function () {
