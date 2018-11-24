@@ -80,9 +80,7 @@ Route::prefix('admin')->group(function () {
   });
 
   // 入庫一覧
-  Route::get('/arrival', function () {
-    return view('admin.arrival.index');
-  });
+  Route::get('/arrival', 'Admin\ArrivalController@index');
 
   // 入庫詳細
   Route::get('/arrival/detail', function () {
@@ -90,9 +88,7 @@ Route::prefix('admin')->group(function () {
   });
 
   // 出庫一覧
-  Route::get('/shipment', function () {
-    return view('admin.shipment.index');
-  });
+  Route::get('/shipment', 'Admin\ShipmentController@index');
 
   // 出庫詳細
   Route::get('/shipment/detail', function () {

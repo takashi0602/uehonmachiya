@@ -13,7 +13,7 @@ class CreateArrivalTable extends Migration
      */
     public function up()
     {
-        Schema::create('arrival', function (Blueprint $table) {
+        Schema::create('arrivals', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('arrival_id')->unsigned();
             $table->integer('product_id')->unsigned();
@@ -33,6 +33,6 @@ class CreateArrivalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arrival');
+        Schema::dropIfExists('arrivals');
     }
 }

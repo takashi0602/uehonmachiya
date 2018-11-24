@@ -34,7 +34,6 @@
       <div class="text-right">
         <a href="/cart" class="mr-3">カートへ戻る</a>
 
-
         <!-- Button trigger modal -->
         <a href="" data-target="#exampleModalCenter" data-toggle="modal">最終確認へ</a>
 
@@ -48,7 +47,8 @@
                 </button>
               </div>
               <div class="modal-body text-left">
-                <p>※購入ボタンを押すと商品購入が確定されます。</p>
+                <p class="m-0">購入ボタンを押すと商品購入が確定されます。</p>
+                <p class="text-danger">※返品はできません。ご注意下さい。</p>
               </div>
               <div class="modal-footer border-0">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
