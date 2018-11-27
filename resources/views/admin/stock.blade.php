@@ -22,10 +22,10 @@
     @foreach($stocks as $stock)
 
     <tr>
-        <th scope="row">>{{$stock->id}}</th>
-        <td>{{ $product[$count++]->name }}</td>
-        <td>>{{$stock->amount}}</td>
-        <td>>{{$stock->safety}}</td>
+        <th scope="row">{{$stock->id}}</th>
+        <td>{{ $products[$count++]->name }}</td>
+        <td>{{$stock->amount}}</td>
+        <td>{{$stock->safety}}</td>
     </tr>
         @endforeach
 </table>
