@@ -17,34 +17,22 @@
         <th scope="col">商品名</th>
         <th scope="col">仕入価格</th>
         <th scope="col">販売価格</th>
+        <th scope="col">ジャンル</th>
         <th scope="col">入庫先名</th>
     </tr>
     </thead>
     <tbody>
+    @foreach($products as $product)
     <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th scope="row">{{$product->id}}</th>
+        <td>{{$product->author}}</td>
+        <td>{{$product->name}}</td>
+        <td>{{$product->price}}</td>
+        <td>{{$product->sales_price}}</td>
+        <td>{{ $categories[$count]->name }}</td>
+        <td>{{ $suppliers[$count++]->name }}</td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+    @endforeach
     </tbody>
 </table>
 
