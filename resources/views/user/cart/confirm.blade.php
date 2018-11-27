@@ -1,9 +1,22 @@
 @extends('user.layouts.app')
 
 @section('content')
-  <h1>確認</h1>
   @if($products)
+    <h3 class="mb-3">お届け先の確認</h3>
+    <div class="row mb-2">
+      <span class="col-sm-2">お名前</span>
+      <p class="col-sm-10 mb-0">{{ $user->name }}</p>
+    </div>
+    <div class="row mb-2">
+      <span class="col-sm-2">郵便番号</span>
+      <p class="col-sm-10 mb-0">〒 {{ $user->postal }}</p>
+    </div>
+    <div class="row mb-5">
+      <span class="col-sm-2">住所</span>
+      <p class="col-sm-10 mb-0">{{ $user->address }}</p>
+    </div>
     @foreach($products as $product)
+      <h3 class="mb-3">購入商品の確認</h3>
       <div class="border-bottom mb-3 p-3">
         <form action="/cart/delete" method="post">
           @csrf
@@ -41,7 +54,7 @@
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-              <div class="modal-header border-0">
+              <div class="modal-header border-0 pb-0">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>

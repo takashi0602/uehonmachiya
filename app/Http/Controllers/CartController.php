@@ -79,6 +79,7 @@ class CartController extends Controller
     $carts_id = $amount = $products = $sales_price = [];
     $carts = Cart::where('user_id', Auth::user()->id)->get();
     $point = User::select('point')->where('id', Auth::user()->id)->first();
+    $user = User::select('name', 'postal', 'address')->where('id', Auth::user()->id)->first();
     foreach ($carts as $cart) {
       $carts_id[] = $cart->id;
       $amount[] = $cart->amount;
@@ -101,7 +102,8 @@ class CartController extends Controller
       'sales_price' => $sales_price,
       'point' => $point,
       'total' => $total,
-      'remaining_points' => $remaining_points
+      'remaining_points' => $remaining_points,
+      'user' => $user
     ]);
   }
 
