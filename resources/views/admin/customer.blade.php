@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>会員一覧</h1>
-<table border="2" rules="all" >
+
 <table class="table">
         <thead>
         <tr>
@@ -18,18 +18,44 @@
         </tr>
         </thead>
         <tbody>
+
+        @foreach($customers as $customer)
         <tr>
             <th scope="row">1</th>
-            <td>abc</td>
-            <td>123-2244</td>
-            <td>大阪府東大阪市</td>
-            <td>abc@gmail.com</td>
-            <td>1993/07/08</td>
-            <td>090-1233-3344</td>
-            <td>男</td>
-            <td>2018/08/08</td>
+            <td>
+                <p>{{$customer->name}}</p>
+                </td>
 
+            <td>
+                    <p>{{$customer->postal}}</p>
+            </td>
+
+            <td>
+                    <p>{{$customer->address}}</p>
+            </td>
+
+            <td>
+                    <p>{{$customer->email}}</p>
+            </td>
+
+            <td>
+                    <p>{{$customer->birth}}</p>
+            </td>
+
+            <td>
+                    <p>{{$customer->tel}}</p>
+
+            </td>
+
+            <td>
+                @if($customer->sex)
+                    <p>女性</p>
+                @else
+                    <p>男性</p>
+                @endif
+            </td>
         </tr>
+        @endforeach
 
         </tbody>
     </table>
