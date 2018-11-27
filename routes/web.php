@@ -54,9 +54,7 @@ Route::prefix('admin')->group(function () {
   });
 
   // 会員一覧
-  Route::get('/user', function () {
-    return view('admin.user');
-  });
+  Route::get('/customer', 'Admin\CustomerController@index');
 
   // 注文一覧
   Route::get('/order', 'Admin\OrderController@index');

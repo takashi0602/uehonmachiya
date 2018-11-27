@@ -25,7 +25,7 @@
 
       <tr>
           <th><a href="{{ url('/admin/product') }}">商品</a></th>
-          <th><a href="{{ url('/admin/user') }}">会員</a></th>
+          <th><a href="{{ url('/admin/customer') }}">会員</a></th>
           <th><a href="{{ url('/admin/supplier') }}">入庫先</a></th>
           <th><a href="{{ url('/admin/stock') }}">在庫</a></th>
           <th><a href="{{ url('/admin/order') }}">注文</a></th>
