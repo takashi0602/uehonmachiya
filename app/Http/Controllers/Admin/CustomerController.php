@@ -11,8 +11,10 @@ class CustomerController extends Controller
   public function index()
   {
     $customers = User::all();
+
     return view('admin.customer', [
       'customers' => $customers
     ]);
   }
+
 }
