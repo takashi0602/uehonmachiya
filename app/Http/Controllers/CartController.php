@@ -70,7 +70,12 @@ class CartController extends Controller
 
   public function delete(Request $request)
   {
-    Cart::destroy($request->cart_id);
+    $user = Cart::select('user_id')->where('id', $request->cart_id)->first();
+
+    if(intval($user->user_id) === Auth::user()->id) {
+      Cart::destroy($request->cart_id);
+    }
+
     return redirect('/cart');
   }
 
