@@ -5,7 +5,6 @@
 <div><a href="http://127.0.0.1:8000/admin/supplier/edit">入庫先の編集</a></div>
 <div>▼詳細検索</div>
 
-
 <table class="table">
     <thead>
     <tr>
