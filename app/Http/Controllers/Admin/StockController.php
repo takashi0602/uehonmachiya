@@ -15,7 +15,7 @@ class StockController extends Controller
     {
         $products = [];
         $count = 0;
-        $stocks = Stock::all();
+        $stocks = Stock::select("id","product_id","amount","safety");
         foreach ($stocks as $stock) {
             $products[] = Product::select('name')->where('id', $stock->product_id)->first();
         }
