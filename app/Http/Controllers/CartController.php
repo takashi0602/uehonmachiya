@@ -60,17 +60,27 @@ class CartController extends Controller
 
   public function add(Request $request)
   {
-    Cart::create([
-      'product_id' => $request->product_id,
-      'user_id' => Auth::user()->id,
-      'amount' => $request->amount
-    ]);
+    if($request->amount > 0) {
+      Cart::create([
+        'product_id' => $request->product_id,
+        'user_id' => Auth::user()->id,
+        'amount' => $request->amount
+      ]);
+    }
+
     return redirect('/cart');
   }
 
   public function delete(Request $request)
   {
-    Cart::destroy($request->cart_id);
+    $user = Cart::select('user_id')->where('id', $request->cart_id)->first();
+
+    if(is_object($user)) {
+      if(intval($user->user_id) === Auth::user()->id) {
+        Cart::destroy($request->cart_id);
+      }
+    }
+
     return redirect('/cart');
   }
 
