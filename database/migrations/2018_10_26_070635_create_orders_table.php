@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->integer('amount');
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default(0); // 0...未出庫, 1...出庫済み
             $table->timestamps();
         });
     }

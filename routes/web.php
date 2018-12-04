@@ -174,9 +174,7 @@ Route::post('/finish', 'CartController@finish');
 Route::get('/decision', 'CartController@decision');
 
 // マイページ
-Route::get('/mypage', function () {
-  return view('user.mypage.index');
-});
+Route::get('/mypage', 'MyPageController@index');
 
 // 個人情報編集
 Route::get('/mypage/edit', function () {
@@ -184,9 +182,7 @@ Route::get('/mypage/edit', function () {
 });
 
 // 注文状況
-Route::get('/mypage/order', function () {
-  return view('user.mypage.order');
-});
+Route::get('/mypage/order', 'MyPageController@order');
 
 // 購入履歴
 Route::get('/mypage/bought', function () {
