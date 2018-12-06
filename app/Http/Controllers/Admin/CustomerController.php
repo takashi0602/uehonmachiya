@@ -10,7 +10,7 @@ class CustomerController extends Controller
 {
   public function index()
   {
-    $customers = User::all();
+    $customers = User::select("name","postal","address","email","email","birth","tel","sex")->get();;
 
     return view('admin.customer', [
       'customers' => $customers
