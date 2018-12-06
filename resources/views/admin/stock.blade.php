@@ -18,19 +18,15 @@
         <th scope="col">安全在庫数</th>
     </tr>
     </thead>
-    <tbody>
+
+    @foreach($stocks as $stock)
+
     <tr>
-        <th scope="row">1</th>
-        <td>C++プログラミング入門</td>
-        <td>20</td>
-        <td>5</td>
+        <th scope="row">{{$stock->id}}</th>
+        <td>{{ $products[$count++]->name }}</td>
+        <td>{{$stock->amount}}</td>
+        <td>{{$stock->safety}}</td>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>java入門</td>
-        <td>12</td>
-        <td>3</td>
-    </tr>
-    </tbody>
+        @endforeach
 </table>
     @endsection
