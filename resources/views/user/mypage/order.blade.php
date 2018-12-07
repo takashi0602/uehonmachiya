@@ -1,39 +1,50 @@
 @extends('user.layouts.app')
 
 @section('content')
-  <h1>注文状況</h1>
-  <tr>
-    <div class="container">
-      <div class="row">
-        <td><div class="col-md-3">ドラえもん</div></td>
-        <td><div class="col-md-3">１冊</div></td>
-        <td> <div class="col-md-3">800円</div></td>
-        <td><div class="col-md-3">1月1日</div></td>
+  <h1>注文履歴</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">日付</th>
+        <th scope="col">商品名</th>
+        <th scope="col">冊数</th>
+        <th scope="col">値段</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($data as $d)
+        <tr>
+          <td>{{ $d["date"] }}</td>
+          <td>{{ $d["name"] }}</td>
+          <td>{{ $d["amount"] }}</td>
+          <td>{{ $d["total"] }}</td>
+          <td>
+            <a href data-toggle="modal" data-target="#detail{{ $d["id"] }}">詳細</a>
+          </td>
+        </tr>
 
-      </div>
-
-    </div>
-    </div>
-  </tr>
-  <div class="mx-auto" style="width: 200px;">
-    (10行でページネーション)
+        <div class="modal fade" id="detail{{ $d["id"] }}" tabindex="-1" role="dialog" aria-labelledby="detail{{ $d["id"] }}Title" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="detail{{ $d["id"] }}Title">{{ $d["name"] }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div>著者：{{ $d["author"] }}</div>
+                <p class="mb-3">{{ $d["description"] }}</p>
+                <div class="mb-3 text-right">1冊：{{ $d["price"] }}円</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </tbody>
+  </table>
+  <div class="text-right">
+    <a href="{{ url("/mypage") }}">マイページへ戻る</a>
   </div>
-
-  <nav aria-label="...">
-    <ul class="pagination">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item active">
-        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
-
-  <div><input type="button" value="マイページに戻る"></div>
 @endsection

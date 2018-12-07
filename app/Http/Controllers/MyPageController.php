@@ -29,18 +29,48 @@ class MyPageController extends Controller
     ]);
   }
 
+  public function edit()
+  {
+    return view('user.mypage.edit');
+  }
+
   public function order()
   {
-    $products = [];
-    $orders = Order::where('user_id', Auth::user()->id)->get();
-    $status = Order::select('status')->where('user_id', Auth::user()->id)->get();
+    $data = [];
+    $product = null;
+    $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
     foreach ($orders as $order) {
-      $products[] = Product::select('sales_price')->where('id', $order->product_id)->first();
+      $product = Product::where('id', $order->product_id)->first();
+      $data[] = [
+        'id' => $product->id,
+        'date' => $order->created_at->format('Y/m/d'),
+        'amount' => $order->amount,
+        'name' => $product->name,
+        'author' => $product->author,
+        'description' => $product->description,
+        'price' => $product->sales_price,
+        'total' => $product->sales_price * $order->amount
+      ];
     }
-    dd($status);
+
     return view('user.mypage.order', [
-      'orders' => $orders,
-      'products' => $products
+      'data' => $data
     ]);
   }
+
+  public function gift()
+  {
+    $point = User::select('point')->where('id', Auth::user()->id)->first();
+    return view('user.mypage.gift', [
+      'point' => $point->point
+    ]);
+  }
+
+  public function add(Request $request)
+  {
+    dd($request->code);
+
+    redirect('user.mypage.gift');
+  }
+
 }
