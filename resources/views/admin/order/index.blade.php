@@ -18,17 +18,12 @@
     <tbody>
 
     <tr>
-        <th 1="row">1</th>
-        <td>15</td>
-        <td>uehonmachi</td>
+        <th scope="row">{{$order->id}}</th>
+        <td>{{$order->orderday}}</td>
+        <td>{{$order->company}}</td>
         <th><a href="{{ url('/admin/order/detail') }}">詳細</a></th>
     </tr>
-    <tr>
-        <th 2="row">2</th>
-        <td>18</td>
-        <td>nanba</td>
-        <th></th>
-    </tr>
+
     </tbody>
 </table>
 
