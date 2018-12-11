@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Rank;
 use Auth;
 use Illuminate\Support\Collection;
 
@@ -153,6 +154,18 @@ class CartController extends Controller
         'user_id' => Auth::user()->id,
         'product_id' => $order->product_id,
         'amount' => $order->amount
+      ]);
+    }
+
+    $rank_total = Rank::where('user_id', Auth::user()->id)->first();
+    if($rank_total) {
+      Rank::where('user_id', Auth::user()->id)->update([
+        'money' => $total + $rank_total->money
+      ]);
+    } else {
+      Rank::create([
+        'user_id' => Auth::user()->id,
+        'money' => $total
       ]);
     }
 
