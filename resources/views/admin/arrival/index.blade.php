@@ -19,18 +19,7 @@
         <td></td>
         <th><a href="{{ url('/admin/arrival/detail') }}">詳細</a></th>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <th><a href="{{ url('/admin/arrival/detail') }}">詳細</a></th>
-    </tr>
-    <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+
     </tbody>
 
 </table>

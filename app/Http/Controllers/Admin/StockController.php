@@ -13,18 +13,18 @@ class StockController extends Controller
 {
     public function index()
     {
-        $products = [];
-        $count = 0;
-        $stocks = Stock::select("id","product_id","amount","safety");
-        foreach ($stocks as $stock) {
-            $products[] = Product::select('name')->where('id', $stock->product_id)->first();
-        }
-        return view('admin.stock', [
-            'stocks' => $stocks,
-            'products' => $products,
-            'count' => $count
-        ]);
+    $products = [];
+    $count = 0;
+    $stocks = Stock::select("id","product_id","amount","safety")->get();
+    foreach ($stocks as $stock) {
+        $products[] = Product::select('name')->where('id', $stock->product_id)->first();
     }
+    return view('admin.stock', [
+        'stocks' => $stocks,
+        'products' => $products,
+        'count' => $count
+    ]);
+}
 }
 
 
