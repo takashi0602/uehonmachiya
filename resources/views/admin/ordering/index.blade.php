@@ -8,33 +8,23 @@
     <tr>
         <th scope="col">No.(発注番号)</th>
         <th scope="col">入庫先名</th>
-        <th scope="col">発注者名</th>
+        <th scope="col">商品名</th>
+        <th scope="col">個数</th>
         <th scope="col">発注日</th>
         <th scope="col">状況</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+    @foreach($ordering as $order)
+        <tr>
+            <th scope="row">{{$order->id}}</th>
+            <td>{{$suppliers[$count]->name}}</td>
+            <td>{{$products[$count++]->name}}</td>
+            <td>{{$order->amount}}</td>
+            <td>{{$order->created_at}}</td>
+            <td>{{$order->status}}</td>
+        </tr>
+    @endforeach
     </tbody>
 </table>
 @endsection

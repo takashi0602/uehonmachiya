@@ -67,4 +67,9 @@
 </div>
 
 <a href="{{ url('/admin/arrival') }}"><input type="button" class="btn btn-primary"value="戻る" ></a>
+
+
+
+
+
     @endsection
