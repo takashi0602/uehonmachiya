@@ -24,7 +24,7 @@
           <div class="modal-body">
             <form action="/cart/add" method="post">
               @csrf
-              <div>{{ $product->author }}</div>
+              <div>著者：{{ $product->author }}</div>
               <p>{{ $product->description }}</p>
               <div class="text-right">
                 <div class="mb-3">

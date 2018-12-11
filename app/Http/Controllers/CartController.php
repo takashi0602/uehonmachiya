@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Rank;
 use Auth;
 use Illuminate\Support\Collection;
 
@@ -119,10 +120,7 @@ class CartController extends Controller
 
   public function finish()
   {
-    $carts_id = array();
-    $amount = array();
-    $products = array();
-    $sales_price = array();
+    $carts_id = $amount = $products = $sales_price = [];
     $carts = Cart::where('user_id', Auth::user()->id)->get();
     $point = User::select('point')->where('id', Auth::user()->id)->first();
     foreach ($carts as $cart) {
@@ -142,6 +140,7 @@ class CartController extends Controller
     User::where('id', Auth::user()->id)->update(['point' => $remaining_points]);
 
     $order_id = Order::select('order_id')->orderBy('created_at', 'desc')->first();
+
     if($order_id != null) {
       $id = $order_id->order_id + 1;
     } else {
@@ -155,6 +154,18 @@ class CartController extends Controller
         'user_id' => Auth::user()->id,
         'product_id' => $order->product_id,
         'amount' => $order->amount
+      ]);
+    }
+
+    $rank_total = Rank::where('user_id', Auth::user()->id)->first();
+    if($rank_total) {
+      Rank::where('user_id', Auth::user()->id)->update([
+        'money' => $total + $rank_total->money
+      ]);
+    } else {
+      Rank::create([
+        'user_id' => Auth::user()->id,
+        'money' => $total
       ]);
     }
 

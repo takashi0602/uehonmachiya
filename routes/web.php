@@ -177,22 +177,19 @@ Route::get('/decision', 'CartController@decision');
 Route::get('/mypage', 'MyPageController@index');
 
 // 個人情報編集
-Route::get('/mypage/edit', function () {
-  return view('user.mypage.edit');
-});
+Route::get('/mypage/edit', 'MyPageController@edit');
+
+// 個人情報編集送信
+Route::post('/mypage/edit/post', 'MyPageController@post');
 
 // 注文状況
 Route::get('/mypage/order', 'MyPageController@order');
 
-// 購入履歴
-Route::get('/mypage/bought', function () {
-  return view('user.mypage.bought');
-});
-
 // ギフトコード入力
-Route::get('/mypage/gift', function () {
-  return view('user.mypage.gift');
-});
+Route::get('/mypage/gift', 'MyPageController@gift');
+
+// ポイントの加算
+Route::post('/mypage/gift/add', 'MyPageController@add');
 
 // お問い合わせ
 Route::get('/contact', function () {
