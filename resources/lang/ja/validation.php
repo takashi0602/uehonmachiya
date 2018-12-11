@@ -15,6 +15,7 @@ return [
 
   'accepted'             => ':attributeを承認してください。',
   'active_url'           => ':attributeが有効なURLではありません。',
+  'address'              => ':attributeは、:maxで指定してください。',
   'after'                => ':attributeには、:dateより後の日付を指定してください。',
   'after_or_equal'       => ':attributeには、:date以前の日付を指定してください。',
   'alpha'                => ':attributeはアルファベットのみがご利用できます。',
@@ -92,6 +93,7 @@ return [
   'not_in'               => '選択された:attributeは正しくありません。',
   'not_regex'            => ':attributeの形式が正しくありません。',
   'numeric'              => ':attributeには、数字を指定してください。',
+  'post'                 => ':attributeは、ハイフンなしの:digitsで指定してください。',
   'present'              => ':attributeが存在していません。',
   'regex'                => ':attributeに正しい形式を指定してください。',
   'required'             => ':attributeは必ず指定してください。',
@@ -143,6 +145,12 @@ return [
   |
   */
 
-  'attributes' => [],
+  'attributes' => [
+    'name' => '名前',
+    'email' => 'メールアドレス',
+    'post' => '郵便番号',
+    'address' => '住所',
+    'password' => 'パスワード'
+  ],
 
 ];

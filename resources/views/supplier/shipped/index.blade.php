@@ -48,7 +48,7 @@
         <th scope="row"></th>
         <td></td>
         <td></td>
-        <td><a  class="" data-toggle="modal" data-target="#exampleModalCenter">
+        <td><a href data-toggle="modal" data-target="#exampleModalCenter">
                 <ins>詳細</ins>
             </a></td>
     </tr>
@@ -56,7 +56,7 @@
         <th scope="row"></th>
         <td></td>
         <td></td>
-        <td><a  class="" data-toggle="modal" data-target="#exampleModalCenter">
+        <td><a href data-toggle="modal" data-target="#exampleModalCenter">
                 <ins>詳細</ins>
             </a></td>
     </tr>
@@ -64,7 +64,7 @@
         <th scope="row"></th>
         <td></td>
         <td></td>
-        <td><a  class="" data-toggle="modal" data-target="#exampleModalCenter">
+        <td><a href data-toggle="modal" data-target="#exampleModalCenter">
                 <ins>詳細</ins>
             </a></td>
     </tr>

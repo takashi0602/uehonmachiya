@@ -179,6 +179,9 @@ Route::get('/mypage', 'MyPageController@index');
 // 個人情報編集
 Route::get('/mypage/edit', 'MyPageController@edit');
 
+// 個人情報編集送信
+Route::post('/mypage/edit/post', 'MyPageController@post');
+
 // 注文状況
 Route::get('/mypage/order', 'MyPageController@order');
 

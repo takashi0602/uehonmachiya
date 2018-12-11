@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Gift;
+use App\Http\Requests\UserEdit;
 use Auth;
 
 class MyPageController extends Controller
@@ -32,7 +33,25 @@ class MyPageController extends Controller
 
   public function edit()
   {
-    return view('user.mypage.edit');
+    $user = User::select('name', 'kana', 'sex', 'postal', 'address', 'tel', 'birth')
+      ->where('id', Auth::user()->id)->first();
+    return view('user.mypage.edit', [
+      'user' => $user
+    ]);
+  }
+
+  public function post(UserEdit $request)
+  {
+    User::where('id', Auth::user()->id)->update([
+        'name' => $request->name,
+        'kana' => $request->kana,
+        'sex' => $request->sex,
+        'postal' => $request->postal,
+        'address' => $request->address,
+        'tel' => $request->tel,
+        'birth' => $request->birth
+      ]);
+    return redirect('/mypage/edit');
   }
 
   public function order()
