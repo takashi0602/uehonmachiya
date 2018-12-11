@@ -15,8 +15,8 @@
       <span class="col-sm-2">住所</span>
       <p class="col-sm-10 mb-0">{{ $user->address }}</p>
     </div>
+    <h3 class="mb-3">購入商品の確認</h3>
     @foreach($products as $product)
-      <h3 class="mb-3">購入商品の確認</h3>
       <div class="border-bottom mb-3 p-3">
         <form action="/cart/delete" method="post">
           @csrf

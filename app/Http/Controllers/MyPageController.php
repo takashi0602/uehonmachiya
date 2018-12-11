@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Gift;
 use Auth;
 
 class MyPageController extends Controller
@@ -61,6 +62,7 @@ class MyPageController extends Controller
   public function gift()
   {
     $point = User::select('point')->where('id', Auth::user()->id)->first();
+
     return view('user.mypage.gift', [
       'point' => $point->point
     ]);
@@ -68,9 +70,22 @@ class MyPageController extends Controller
 
   public function add(Request $request)
   {
-    dd($request->code);
+    $point = Gift::select('point')->where('code', $request->code)->first();
+    $havePoint = User::select('point')->where('id', Auth::user()->id)->first()->point;
+    $flag = Gift::select('use_flag')->where('code', $request->code)->first();
 
-    redirect('user.mypage.gift');
+    if($point && $flag->use_flag === 0) {
+      User::where('id', Auth::user()->id)
+        ->update([
+          'point' => $point->point + $havePoint
+        ]);
+      Gift::where('code', $request->code)
+        ->update([
+          'use_flag' => 1
+        ]);
+    }
+
+    return redirect('/mypage/gift');
   }
 
 }
