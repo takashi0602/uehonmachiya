@@ -8,9 +8,11 @@ use App\Models\Order;
 
 class OrderController extends Controller
 {
+
   public function index()
   {
-    $orders = Order::select("id","orderday","company")->get();
+    $orders = Order::select("id","order_id","user_id",'product_id','amount','status','created_at')->get();
+
     return view('admin.order.index', [
       'orders' => $orders
     ]);
