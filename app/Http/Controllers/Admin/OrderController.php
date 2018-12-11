@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
   public function index()
   {
-    $orders = Order::all();
+    $orders = Order::select("id","orderday","company")->get();
     return view('admin.order.index', [
       'orders' => $orders
     ]);
