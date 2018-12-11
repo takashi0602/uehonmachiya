@@ -10,7 +10,7 @@ class ShipmentController extends Controller
 {
   public function index()
   {
-    $shipments = Shipment::select('shipment_id','product_id','amount','status');
+    $shipments = Shipment::select('id','shipment_id','product_id','user_id','amount','status','created_at')->get();
 
     return view('admin.shipment.index', [
       'shipments' => $shipments

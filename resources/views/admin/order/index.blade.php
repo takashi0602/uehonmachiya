@@ -10,21 +10,19 @@
     <tr>
         <th scope="col">NO(注文番号)</th>
         <th scope="col">注文日</th>
-        <th scope="col">会社名</th>
         <th scope="col"></th>
 
     </tr>
     </thead>
     <tbody>
-
+    @foreach($orders as $order)
     <tr>
         <th scope="row">{{$order->id}}</th>
-        <td>{{$order->orderday}}</td>
-        <td>{{$order->company}}</td>
+        <td>{{$order->created_at}}</td>
         <th><a href="{{ url('/admin/order/detail') }}">詳細</a></th>
     </tr>
-
     </tbody>
+    @endforeach
 </table>
 
 @endsection
