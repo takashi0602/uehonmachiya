@@ -4,7 +4,7 @@
 
 <form action="">
     <div class="form-group">
-        <label class="col-sm-4" for="exampleInput" >出版社</label>
+        <label class="col-sm-4" for="exampleInput" >商品名</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
         </div>

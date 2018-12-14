@@ -14,22 +14,13 @@
             <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">入庫先住所</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-        </div>
-    </div>
+
     <div class="form-group">
         <label class="col-sm-4" for="exampleInput">入庫先電話番号(TEL)</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-            <div class="form-group">
-                <label class="col-sm-4" for="exampleInput">入庫先電話番号（FAX))</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-                </div>
-            </div>
+        </div>
+    </div>
             <div class="form-group">
                 <label class="col-sm-4" for="exampleInput">メールアドレス</label>
                 <div class="col-sm-8">
@@ -44,33 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">販売単価</label>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">入庫先電話番号(FAX)</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">入庫先名</label>
-        <label class="col-sm-4" for="exampleInput">メールアドレス</label>
 
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-        </div>
-    </div>
-    <div class="form-group">
-
-        <label class="col-sm-4" for="exampleInput">安全在庫数</label>
-        <label class="col-sm-4" for="exampleInput">代表者名</label>
-
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-        </div>
-    </div>
 
 
 
