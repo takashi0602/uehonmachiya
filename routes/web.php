@@ -101,17 +101,13 @@ Route::prefix('admin')->group(function () {
     return view('admin.sales');
   });
 
-
-
   // ランキング一覧
-  Route::get('/rank', function () {
-    return view('admin.rank');
-  });
+  Route::get('/rank', 'Admin\RankController@index');
 
   // お問い合わせ一覧
-    Route::get('/contact', function () {
-        return view('admin.contact');
-    });
+  Route::get('/contact', function () {
+      return view('admin.contact');
+  });
 
 });
 
