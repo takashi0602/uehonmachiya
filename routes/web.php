@@ -45,9 +45,10 @@ Route::prefix('admin')->group(function () {
   Route::get('/supplier', 'Admin\SupplierController@index');
 
   // 入庫先追加
-  Route::get('/supplier/add', function () {
-    return view('admin.supplier.add');
-  });
+  Route::get('/supplier/add', 'Admin\SupplierController@add');
+
+  // 入庫先追加機能
+  Route::post('/supplier/add/create', 'Admin\SupplierController@create');
 
   // 入庫先変更
   Route::get('/supplier/edit', function () {

@@ -1,84 +1,53 @@
 @extends('admin.layouts.app')
 @section('content')
-<h1>入庫先追加</h1>
-<form >
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInputsyohin">入庫先名</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyohin" aria-describedby="syohinHelp" placeholder="">
+<h1 class="mb-4">入庫先追加</h1>
+<form action="{{ url("/admin/supplier/add/create") }}" method="post">
+    @csrf
+    <div class="row mb-3">
+        <label class="col-sm-3">入庫先名</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="" name="name">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput" >入庫先郵便番号</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+    <div class="row mb-3">
+        <label class="col-sm-3">代表者名</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="" name="president">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">入庫先住所</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+    <div class="row mb-3">
+        <label class="col-sm-3">メールアドレス</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="" name="email">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">入庫先電話番号(TEL)</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-            <div class="form-group">
-                <label class="col-sm-4" for="exampleInput">入庫先電話番号（FAX))</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4" for="exampleInput">メールアドレス</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4" for="exampleInput">代表者名</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-                </div>
-            </div>
+    <div class="row mb-3">
+        <label class="col-sm-3">電話番号</label>
+        <div class="col-sm-9">
+            <input type="tel" class="form-control" placeholder="" name="tel">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">販売単価</label>
+    <div class="row mb-3">
+        <label class="col-sm-3">パスワード</label>
+        <div class="col-sm-9">
+            <input type="password" class="form-control" placeholder="" name="password">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">入庫先電話番号(FAX)</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+    <div class="row mb-3">
+        <label class="col-sm-3">郵便番号</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="" name="postal">
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-4" for="exampleInput">入庫先名</label>
-        <label class="col-sm-4" for="exampleInput">メールアドレス</label>
-
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
+    <div class="row mb-3">
+        <label class="col-sm-3">住所</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="" name="address">
         </div>
     </div>
-    <div class="form-group">
-
-        <label class="col-sm-4" for="exampleInput">安全在庫数</label>
-        <label class="col-sm-4" for="exampleInput">代表者名</label>
-
-        <div class="col-sm-8">
-            <input type="text" class="form-control" id="exampleInputsyuppan" placeholder="">
-        </div>
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary">追加</button>
     </div>
-
-
-
-    <div class="text-right mr-4">
-        <button type="reset" class="btn btn-primary">リセット</button>
-        <button type="submit" class="btn btn-primary " >追加</button>
-    </div>
-</form>
 </form>
 @endsection
 

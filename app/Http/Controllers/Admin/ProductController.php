@@ -45,6 +45,7 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
+      // TODO imgをstorageに追加する
       // TODO フォームリクエストでバリデーション
       if($request->category_name) {
         Category::create([
