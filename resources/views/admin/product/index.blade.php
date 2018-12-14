@@ -1,13 +1,9 @@
 @extends('admin.layouts.app')
 @section('content')
 <h1>商品一覧</h1>
-<tr>
-    <th><a href="{{ url('/admin/product/add') }}">商品の追加</a></th>
-    <th><a href="{{ url('/admin/product/edit') }}">商品の編集</a></th>
-</tr>
-
-
-
+<div>
+    <a href="{{ url('/admin/product/add') }}">商品の追加</a>
+</div>
 
 <table class="table">
     <thead>

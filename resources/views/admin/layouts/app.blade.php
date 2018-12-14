@@ -20,28 +20,21 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-  <form action="">
-     <div>
-
-      <tr>
-          <th><a href="{{ url('/admin/product') }}">商品</a></th>
-          <th><a href="{{ url('/admin/customer') }}">会員</a></th>
-          <th><a href="{{ url('/admin/supplier') }}">入庫先</a></th>
-          <th><a href="{{ url('/admin/stock') }}">在庫</a></th>
-          <th><a href="{{ url('/admin/order') }}">注文</a></th>
-          <th><a href="{{ url('/admin/ordering') }}">発注</a></th>
-          <th><a href="{{ url('/admin/arrival') }}">入庫</a></th>
-          <th><a href="{{ url('/admin/shipment') }}">出庫</a></th>
-          <th><a href="{{ url('/admin/sales') }}">売上</a></th>
-          <th><a href="{{ url('/admin/rank') }}">ランキング</a></th>
-          <th><a href="{{ url('/admin/contact') }}">お問い合わせ</a></th>
-
-
-      </tr>
-     </div>
-  </form>
-  <div>
+   <div>
+        <a href="{{ url('/admin/product') }}">商品</a>
+        <a href="{{ url('/admin/customer') }}">会員</a>
+        <a href="{{ url('/admin/supplier') }}">入庫先</a>
+        <a href="{{ url('/admin/stock') }}">在庫</a>
+        <a href="{{ url('/admin/order') }}">注文</a>
+        <a href="{{ url('/admin/ordering') }}">発注</a>
+        <a href="{{ url('/admin/arrival') }}">入庫</a>
+        <a href="{{ url('/admin/shipment') }}">出庫</a>
+        <a href="{{ url('/admin/sales') }}">売上</a>
+        <a href="{{ url('/admin/rank') }}">ランキング</a>
+        <a href="{{ url('/admin/contact') }}">お問い合わせ</a>
+   </div>
+   <div class="container">
       @yield('content')
-  </div>
+   </div>
 </body>
 </html>

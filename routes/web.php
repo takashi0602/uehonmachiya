@@ -31,9 +31,10 @@ Route::prefix('admin')->group(function () {
   Route::get('/product', 'Admin\ProductController@index');
 
   // 商品追加
-  Route::get('/product/add', function () {
-    return view('admin.product.add');
-  });
+  Route::get('/product/add', 'Admin\ProductController@add');
+
+  // 商品追加機能
+  Route::post('/product/add/create', 'Admin\ProductController@create');
 
   // 商品変更
   Route::get('/product/edit', function () {
