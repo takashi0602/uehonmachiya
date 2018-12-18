@@ -61,6 +61,9 @@ Route::prefix('admin')->group(function () {
   // 注文一覧
   Route::get('/order', 'Admin\OrderController@index');
 
+  // 注文->出庫
+  Route::post('/order/shipment', 'Admin\OrderController@shipment');
+
   // 注文詳細
   Route::get('/order/detail', function () {
     return view('admin.order.detail');
