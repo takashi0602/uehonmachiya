@@ -41,6 +41,9 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/top') }}">トップ</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">ログイン</a>
                             </li>
                             <li class="nav-item">
@@ -49,6 +52,9 @@
                                 @endif
                             </li>
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/top') }}">トップ</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/mypage') }}">
                                     {{ Auth::user()->name }}

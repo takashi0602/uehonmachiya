@@ -139,7 +139,7 @@ class CartController extends Controller
     $point->point = $remaining_points;
     User::where('id', Auth::user()->id)->update(['point' => $remaining_points]);
 
-    $order_id = Order::select('order_id')->orderBy('created_at', 'desc')->first();
+    $order_id = Order::select('order_id')->orderBy('order_id', 'desc')->first();
 
     if($order_id != null) {
       $id = $order_id->order_id + 1;
