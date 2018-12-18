@@ -15,6 +15,7 @@ class OrderController extends Controller
 
   public function index()
   {
+    $count = 0;
     $data = $product_id = $product_name = $product = $status = [];
     $orders = Order::select('id', 'order_id', 'user_id', 'product_id', 'amount', 'status', 'created_at')->get();
     $orders_id = Order::distinct()->select('order_id', 'user_id', 'created_at', 'status')->get();
@@ -53,13 +54,22 @@ class OrderController extends Controller
     }
 
     return view('admin.order.index', [
-      'data' => $data
+      'data' => $data,
+      'count' => $count
     ]);
   }
 
   public function shipment(Request $request)
   {
     Order::where('order_id', $request->order_id)->update(['status' => 1]);
+
+    $amount = Order::where('order_id', $request->order_id)->get();
+
+    foreach ($amount as $value) {
+      Stock::where('product_id', $value->product_id)->update([
+        'amount' => Stock::where('product_id', $value->product_id)->first()->amount - $value->amount
+      ]);
+    }
 
     $shipments = Order::where('order_id', $request->order_id)->get();
     $shipment_id = Shipment::select('shipment_id')->orderBy('shipment_id', 'desc')->first();
@@ -76,7 +86,7 @@ class OrderController extends Controller
         'product_id' => $shipment->product_id,
         'user_id' => $shipment->user_id,
         'amount' => $shipment->amount,
-        'status' => 1
+        'status' => 0
       ]);
     }
     return redirect('/admin/order');

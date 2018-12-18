@@ -141,7 +141,7 @@ class CartController extends Controller
 
     $order_id = Order::select('order_id')->orderBy('order_id', 'desc')->first();
 
-    if($order_id != null) {
+    if($order_id) {
       $id = $order_id->order_id + 1;
     } else {
       $id = 1;

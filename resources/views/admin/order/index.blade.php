@@ -63,6 +63,11 @@
                                             <div class="col">{{ $order['amount'][$i] }}冊</div>
                                             <div class="col">{{ $order['stock'][$i] }}冊</div>
                                         </div>
+                                        @if($order['amount'][$i] > $order['stock'][$i])
+                                            <p class="text-danger">
+                                                ※{{ $count = $order['amount'][$i] - $order['stock'][$i] }}冊不足しています
+                                            </p>
+                                        @endif
                                     @endfor
                                 </div>
                                 <div class="row mb-3">
@@ -75,7 +80,11 @@
                                     @csrf
                                     <input type="hidden" name="order_id" value="{{ $order['id'] }}">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                    <button type="submit" class="btn btn-primary">出庫する</button>
+                                    @if($count)
+                                        <button type="button" class="btn btn-primary" disabled>出庫する</button>
+                                    @else
+                                        <button type="submit" class="btn btn-primary">出庫する</button>
+                                    @endif
                                 </form>
                             </div>
                         </div>
