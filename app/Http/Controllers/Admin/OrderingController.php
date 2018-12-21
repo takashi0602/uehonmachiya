@@ -12,7 +12,7 @@ class OrderingController extends Controller
 {
   public function index()
   {
-    $ordering = Ordering::select("id","product_id",'supplier_id',"ordering_id",'amount','created_at','status')->get();
+      $ordering = Ordering::select("id","product_id",'supplier_id',"ordering_id",'amount','created_at','status')->get();
       $suppliers = [];
       $products = [];
       $count = 0;
@@ -23,11 +23,21 @@ class OrderingController extends Controller
       {
           $products[] = Product::select('name')->where('id', $order->product_id)->first();
       }
-    return view('admin.ordering.index', [
-      'ordering' => $ordering,
-        'products' => $products,
-        'suppliers' => $suppliers,
-        'count' => $count
-    ]);
+      return view('admin.ordering.index', [
+          'ordering' => $ordering,
+          'products' => $products,
+          'suppliers' => $suppliers,
+          'count' => $count
+      ]);
+  }
+
+  public function process()
+  {
+    return view('admin.ordering.process');
+  }
+
+  public function create(Request $request)
+  {
+    return redirect('/admin/ordering');
   }
 }

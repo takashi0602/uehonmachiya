@@ -78,9 +78,10 @@ Route::prefix('admin')->group(function () {
   });
 
   // 発注処理
-  Route::get('/ordering/process', function () {
-    return view('admin.ordering.process');
-  });
+  Route::get('/ordering/process', 'Admin\OrderingController@process');
+
+  // 発注作成
+  Route::post('/ordering/process/create', 'Admin\OrderingController@create');
 
   // 入庫一覧
   Route::get('/arrival', 'Admin\ArrivalController@index');
