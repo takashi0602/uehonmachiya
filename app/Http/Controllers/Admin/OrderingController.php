@@ -12,6 +12,7 @@ class OrderingController extends Controller
 {
   public function index()
   {
+    // 修正
       $ordering = Ordering::select("id","product_id",'supplier_id',"ordering_id",'amount','created_at','status')->get();
       $suppliers = [];
       $products = [];
@@ -38,6 +39,17 @@ class OrderingController extends Controller
 
   public function create(Request $request)
   {
+    if($request->amount > 0) {
+      Ordering::create([
+        'ordering_id' =>
+          Ordering::orderBy('ordering_id', 'desc')->first()->ordering_id
+            ? Ordering::orderBy('ordering_id', 'desc')->first()->ordering_id + 1 : 1,
+        'product_id' => $request->product_id,
+        'supplier_id' => Product::where('id', $request->product_id)->first()->supplier_id,
+        'amount' => $request->amount,
+        'status' => 0
+      ]);
+    }
     return redirect('/admin/ordering');
   }
 }

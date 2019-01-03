@@ -61,25 +61,31 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-3">商品名</div>
-                                        <div class="col-9"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-3">入庫先名</div>
-                                        <div class="col-9"></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-3">仕入れ単価</div>
-                                        <div class="col-9">1冊：円</div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
                                     <form action="{{ url('/admin/ordering/process/create') }}" method="post">
                                         @csrf
-                                        <input type="hidden" value="{{ $stock->product_id }}" name="product_id">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                                        <button type="submit" class="btn btn-success">発注する</button>
+                                        <div class="row mb-3">
+                                            <div class="col-3">商品名</div>
+                                            <div class="col-9"></div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-3">入庫先名</div>
+                                            <div class="col-9"></div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-3">仕入れ単価</div>
+                                            <div class="col-9">1冊：円</div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-3">発注数</div>
+                                            <div class="col-5">
+                                                <input type="number" class="form-control" value="1" name="amount">
+                                            </div>
+                                        </div>
+                                        <div class="text-right pt-3">
+                                            <input type="hidden" value="{{ $stock->product_id }}" name="product_id">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                                            <button type="submit" class="btn btn-success">発注する</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
