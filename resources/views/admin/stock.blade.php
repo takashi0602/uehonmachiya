@@ -38,8 +38,8 @@
             <tr>
                 <td>{{ $stock->id }}</td>
                 <td>{{ $products[$count++]->name }}</td>
-                <td class="text-right">{{ $stock->amount }}本</td>
-                <td class="text-right">{{ $stock->safety }}本</td>
+                <td class="text-right">{{ $stock->amount }}冊</td>
+                <td class="text-right">{{ $stock->safety }}冊</td>
                 @if($stock->amount - $stock->safety >= 0)
                     <td class="text-success text-center">○</td>
                 @elseif($stock->amount == 0)
