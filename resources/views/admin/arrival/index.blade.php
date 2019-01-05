@@ -1,25 +1,25 @@
 @extends('admin.layouts.app')
 @section('content')
 <h1>入庫一覧</h1>
-
-<div>▼詳細検索</div>
 <table class="table">
     <thead>
-
     <tr>
-        <th scope="col">No.(入庫番号)</th>
+        <th scope="col">入庫番号</th>
+        <th scope="col">入庫先名</th>
         <th scope="col">入庫日</th>
-        <th scope="col">状態</th>
-        <th scope="col"> </th>
+        <th scope="col">状態</th> {{-- 入庫待ち or 入庫済み --}}
+        <th scope="col">入庫処理</th>
+        <th scope="col"></th>
     </tr>
-
     </thead>
     <tbody>
     @foreach($arrivals as $arrival)
     <tr>
         <td>{{$arrival->id}}</th>
-        <td>{{$arrival->created_at}}</td>
+        <td>{{$suppliers[$count]->name}}</th>
+        <td>{{$arrival->created_at->format('Y/m/d')}}</td>
         <td>{{$arrival->status}}</td>
+        <td><a href data-toggle="modal" data-target="#modal-arrival{{ $arrival->id }}">入庫処理</a></td>
         <td><a href data-toggle="modal" data-target="#modal-sample{{ $arrival->id }}">詳細</a></td>
         <!-- 2.モーダルの配置 -->
         <div class="modal" id="modal-sample{{ $arrival->id }}" tabindex="-1">
@@ -67,7 +67,6 @@
     </tr>
     @endforeach
     </tbody>
-
 </table>
 @endsection
 

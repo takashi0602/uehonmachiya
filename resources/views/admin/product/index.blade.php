@@ -8,7 +8,7 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">NO.(商品番号)</th>
+        <th scope="col">商品番号</th>
         <th scope="col">著者</th>
         <th scope="col">商品名</th>
         <th scope="col">仕入価格</th>
@@ -20,7 +20,7 @@
     <tbody>
     @foreach($products as $product)
     <tr>
-        <th scope="row">{{$product->id}}</th>
+        <td>{{$product->id}}</td>
         <td>{{$product->author}}</td>
         <td>{{$product->name}}</td>
         <td>{{$product->price}}</td>

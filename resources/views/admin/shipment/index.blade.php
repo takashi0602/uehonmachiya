@@ -6,7 +6,7 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">NO</th>
+        <th scope="col">出庫番号</th>
         <th scope="col">会員名</th>
         <th scope="col">出庫日</th>
         <th scope="col"></th>

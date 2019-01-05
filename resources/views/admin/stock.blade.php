@@ -19,14 +19,10 @@
         </form>
     </div>
 
-    <div>
-        <a href="{{ url('/admin/ordering/process') }}">発注処理をする</a>
-    </div>
-
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">NO.(商品番号)</th>
+            <th scope="col">商品番号</th>
             <th scope="col">商品名</th>
             <th class="text-right" scope="col">在庫数</th>
             <th class="text-right" scope="col">安全在庫数</th>
@@ -48,7 +44,7 @@
                     <td class="text-warning text-center">▲</td>
                 @endif
                 <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#StockModal{{ $stock->product_id }}">発注処理</button>
+                    <a href data-toggle="modal" data-target="#StockModal{{ $stock->product_id }}">発注処理</a>
 
                     <!-- Modal -->
                     <div class="modal fade" id="StockModal{{ $stock->product_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

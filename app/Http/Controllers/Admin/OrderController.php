@@ -15,7 +15,6 @@ class OrderController extends Controller
 
   public function index()
   {
-    $count = 0;
     $data = $product_id = $product_name = $product = $status = [];
     $orders = Order::select('id', 'order_id', 'user_id', 'product_id', 'amount', 'status', 'created_at')->get();
     $orders_id = Order::distinct()->select('order_id', 'user_id', 'created_at', 'status')->get();
@@ -49,13 +48,13 @@ class OrderController extends Controller
         'stock' => $product[$order_id->order_id - 1]['stock'],
         'sales' => $product[$order_id->order_id - 1]['sales'],
         'created_at' => $order_id->created_at->format('Y/m/d'),
-        'status' => $order_id->status
+        'status' => $order_id->status,
+        'count' => 0
       ];
     }
 
     return view('admin.order.index', [
-      'data' => $data,
-      'count' => $count
+      'data' => $data
     ]);
   }
 

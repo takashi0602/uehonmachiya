@@ -7,7 +7,7 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">NO(入庫番号)</th>
+        <th scope="col">入庫先番号</th>
         <th scope="col">入庫先名</th>
         <th scope="col">入庫先郵便番号</th>
         <th scope="col">入庫先電話番号(TEL)</th>

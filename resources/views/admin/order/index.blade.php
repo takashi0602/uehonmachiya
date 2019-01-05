@@ -6,7 +6,7 @@
 <table class="table">
     <thead>
     <tr>
-        <th>NO(注文番号)</th>
+        <th>注文番号</th>
         <th>会員名</th>
         <th>注文日</th>
         <th></th>
@@ -53,19 +53,19 @@
                                 </div>
                                 <div class="mb-3">
                                     <div class="row mb-1">
-                                        <div class="col">商品名</div>
+                                        <div class="col-6">商品名</div>
                                         <div class="col">注文数</div>
                                         <div class="col">在庫数</div>
                                     </div>
                                     @for($i = 0; $i < count($order['product_name']); $i++)
                                         <div class="row mb-1">
-                                            <div class="col">{{ $order['product_name'][$i] }}</div>
+                                            <div class="col-6">{{ $order['product_name'][$i] }}</div>
                                             <div class="col">{{ $order['amount'][$i] }}冊</div>
                                             <div class="col">{{ $order['stock'][$i] }}冊</div>
                                         </div>
                                         @if($order['amount'][$i] > $order['stock'][$i])
                                             <p class="text-danger">
-                                                ※{{ $count = $order['amount'][$i] - $order['stock'][$i] }}冊不足しています
+                                                ※{{ $order['count'] = $order['amount'][$i] - $order['stock'][$i] }}冊不足しています
                                             </p>
                                         @endif
                                     @endfor
@@ -80,7 +80,7 @@
                                     @csrf
                                     <input type="hidden" name="order_id" value="{{ $order['id'] }}">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                    @if($count)
+                                    @if($order['count'])
                                         <button type="button" class="btn btn-primary" disabled>出庫する</button>
                                     @else
                                         <button type="submit" class="btn btn-primary">出庫する</button>
