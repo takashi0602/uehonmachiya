@@ -20,21 +20,23 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-   <div>
-        <a href="{{ url('/admin/product') }}">商品</a>
-        <a href="{{ url('/admin/customer') }}">会員</a>
-        <a href="{{ url('/admin/supplier') }}">入庫先</a>
-        <a href="{{ url('/admin/stock') }}">在庫</a>
-        <a href="{{ url('/admin/order') }}">注文</a>
-        <a href="{{ url('/admin/ordering') }}">発注</a>
-        <a href="{{ url('/admin/arrival') }}">入庫</a>
-        <a href="{{ url('/admin/shipment') }}">出庫</a>
-        <a href="{{ url('/admin/sales') }}">売上</a>
-        <a href="{{ url('/admin/rank') }}">ランキング</a>
-        <a href="{{ url('/admin/contact') }}">お問い合わせ</a>
-   </div>
-   <div class="container">
-      @yield('content')
-   </div>
+  <div class="border-bottom mb-3 bg-info">
+    <div class="container d-flex flex-wrap py-2">
+      <div class="w-25"><a href="{{ url('/admin/product') }}" class="text-white w-25">商品</a></div>
+      <div class="w-25"><a href="{{ url('/admin/customer') }}" class="text-white">会員</a></div>
+      <div class="w-25"><a href="{{ url('/admin/supplier') }}" class="text-white">入庫先</a></div>
+      <div class="w-25"><a href="{{ url('/admin/stock') }}" class="text-white">在庫</a></div>
+      <div class="w-25"><a href="{{ url('/admin/order') }}" class="text-white">注文</a></div>
+      <div class="w-25"><a href="{{ url('/admin/ordering') }}" class="text-white">発注</a></div>
+      <div class="w-25"><a href="{{ url('/admin/arrival') }}" class="text-white">入庫</a></div>
+      <div class="w-25"><a href="{{ url('/admin/shipment') }}" class="text-white">出庫</a></div>
+      <div class="w-25"><a href="{{ url('/admin/sales') }}" class="text-white">売上</a></div>
+      <div class="w-25"><a href="{{ url('/admin/rank') }}" class="text-white">ランキング</a></div>
+      <div class="w-25"><a href="{{ url('/admin/contact') }}" class="text-white">お問い合わせ</a></div>
+    </div>
+  </div>
+  <div class="container">
+    @yield('content')
+  </div>
 </body>
 </html>
