@@ -16,7 +16,7 @@ class Supplier extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'president', 'email', 'password', 'postal', 'address', 'tel', 'fax'
+        'name', 'president', 'email', 'password', 'postal', 'address', 'tel'
     ];
 
     protected $hidden = [

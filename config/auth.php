@@ -77,7 +77,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'admins' => [
+        'suppliers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Supplier::class,
         ],
@@ -109,7 +109,7 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-        'admins' => [
+        'suppliers' => [
             'provider' => 'suppliers',
             'table' => 'password_resets',
             'expire' => 60,

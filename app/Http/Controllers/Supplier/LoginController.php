@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'supplier/home';
+    protected $redirectTo = '/supplier/ordering';
 
     /**
      * Create a new controller instance.
@@ -39,27 +39,26 @@ class LoginController extends Controller
         $this->middleware('guest:supplier')->except('logout');
     }
 
-    public function userLoginForm()
+    public function supplierLoginForm()
     {
-        return view('user.auth.login');
+        return view('supplier.auth.login');
     }
 
-    public function showLoginForm()
+    public function authenticate(Request $request)
     {
-        return view('supplier.Auth.login');
-    }
+//        Auth::guard('supplier');
+        $credentials = $request->only('email', 'password');
 
-    protected function guard()
-    {
-        return Auth::guard('supplier');
-    }
+        if (Auth::guard('supplier')->attempt($credentials)) {
+          return redirect('/supplier/ordering');
+        }
+//        $this->validateLogin($request);
+//        $email = $request->email;
+//        $password = $request->password;
+//        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+//          return redirect('/supplier/ordering');
+//        }
 
-    public function logout(Request $request)
-    {
-        Auth::guard('supplier')->logout();
-        $request->session()->flush();
-        $request->session()->regenerate();
-
-        return redirect('/supplier/login');
+        return redirect()->back();
     }
 }

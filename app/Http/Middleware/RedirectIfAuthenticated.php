@@ -17,8 +17,17 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        switch ($guard) {
+          case 'supplier':
+            if (Auth::guard($guard)->check()) {
+              return redirect('/supplier/ordering');
+            }
+            break;
+          default:
+            if (Auth::guard($guard)->check()) {
+              return redirect('/mypage');
+            }
+            break;
         }
 
         return $next($request);

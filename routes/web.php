@@ -121,29 +121,14 @@ Route::prefix('admin')->group(function () {
 Route::prefix('supplier')->group(function () {
 
   // ログイン
-//  Route::get('/login', function () {
-//    return view('supplier.login');
-//  });
+  Route::get('/login', 'Supplier\LoginController@supplierLoginForm');
+  Route::post('/login', 'Supplier\LoginController@authenticate');
 
   // 発注一覧
-  Route::get('/ordering', function () {
-    return view('supplier.ordering.index');
-  });
-
-  // 発注詳細
-  Route::get('/ordering/detail', function () {
-    return view('supplier.ordering.detail');
-  });
+  Route::get('/ordering', 'Supplier\OrderingController@index');
 
   // 出庫済み一覧
-  Route::get('/shipped', function () {
-    return view('supplier.shipped.index');
-  });
-
-  // 出庫済み詳細
-  Route::get('/shipped/detail', function () {
-    return view('supplier.shipped.detail');
-  });
+  Route::get('/shipped', 'Supplier\ShippedController@index');
 
 });
 
@@ -213,7 +198,7 @@ Route::get('/contact', function () {
 //});
 
 
-Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {
-  Route::post('logout',   'Supplier\LoginController@logout')->name('supplier.logout');
-  Route::get('home',      'Supplier\HomeController@index')->name('supplier.home');
-});
+//Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {
+//  Route::post('logout',   'Supplier\LoginController@logout')->name('supplier.logout');
+//  Route::get('home',      'Supplier\HomeController@index')->name('supplier.home');
+//});
