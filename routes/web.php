@@ -110,10 +110,10 @@ Route::prefix('admin')->group(function () {
   // ランキング一覧
   Route::get('/rank', 'Admin\RankController@index');
 
-  // お問い合わせ一覧
-  Route::get('/contact', function () {
-      return view('admin.contact');
-  });
+  // お問い合わせ一覧 TODO: 時間があれば
+//  Route::get('/contact', function () {
+//      return view('admin.contact');
+//  });
 
 });
 

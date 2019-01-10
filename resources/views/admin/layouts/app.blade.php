@@ -32,7 +32,7 @@
       <div class="w-25"><a href="{{ url('/admin/shipment') }}" class="text-white">出庫</a></div>
       <div class="w-25"><a href="{{ url('/admin/sales') }}" class="text-white">売上</a></div>
       <div class="w-25"><a href="{{ url('/admin/rank') }}" class="text-white">ランキング</a></div>
-      <div class="w-25"><a href="{{ url('/admin/contact') }}" class="text-white">お問い合わせ</a></div>
+      {{--<div class="w-25"><a href="{{ url('/admin/contact') }}" class="text-white">お問い合わせ</a></div>--}}
     </div>
   </div>
   <div class="container">
