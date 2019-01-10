@@ -37,7 +37,8 @@ class OrderingController extends Controller
         ];
       }
       return view('supplier.ordering.index', [
-        'data' => $data
+        'data' => $data,
+        'supplier_name' => Auth::guard('supplier')->user()->name
       ]);
     }
 }

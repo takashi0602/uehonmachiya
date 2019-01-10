@@ -1,5 +1,7 @@
 @extends('supplier.layouts.app')
 
+@include('supplier.header')
+
 @section('content')
 <h1>出庫済み一覧</h1>
 

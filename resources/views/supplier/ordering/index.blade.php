@@ -1,5 +1,7 @@
 @extends('supplier.layouts.app')
 
+@include('supplier.header')
+
 @section ('content')
 <h1>発注一覧</h1>
 <table class="table">
