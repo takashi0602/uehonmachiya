@@ -22,11 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 // 管理者
 Route::prefix('admin')->group(function () {
 
-  // ログイン
-  Route::get('/login', function () {
-    return view('admin.login');
-  });
-
   // 商品一覧
   Route::get('/product', 'Admin\ProductController@index');
 
@@ -85,6 +80,9 @@ Route::prefix('admin')->group(function () {
 
   // 入庫一覧
   Route::get('/arrival', 'Admin\ArrivalController@index');
+
+  //
+  Route::post('/arrival/processing', 'Admin\ArrivalController@processing');
 
   // 入庫詳細
   Route::get('/arrival/detail', function () {

@@ -28,4 +28,12 @@ class ArrivalController extends Controller
         'count' => $count,
     ]);
   }
+
+  public function processing(Request $request)
+  {
+    Arrival::where('id', $request->id)->update([
+      'status' => 1
+    ]);
+    return redirect('/admin/arrival');
+  }
 }
