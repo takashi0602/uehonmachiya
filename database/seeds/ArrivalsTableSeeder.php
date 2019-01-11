@@ -29,7 +29,7 @@ class ArrivalsTableSeeder extends Seeder
                 'supplier_id' => $suppliers_id[$i],
                 'arrival_id' => $arrival_id[$i],
                 'amount' => $amount[$i],
-                'status' => 0,
+                'status' => 1,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()
             ]);
