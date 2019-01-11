@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Arrival;
 use App\Models\Product;
 use App\Models\Supplier;
+use App\Models\Stock;
+
 class ArrivalController extends Controller
 {
   public function index()
@@ -31,8 +33,13 @@ class ArrivalController extends Controller
 
   public function processing(Request $request)
   {
+    $product_id = Arrival::where('id', $request->id)->first()->product_id;
+    $amount = Stock::where('product_id', $product_id)->first()->amount + Arrival::where('id', $request->id)->first()->amount;
     Arrival::where('id', $request->id)->update([
       'status' => 1
+    ]);
+    Stock::where('product_id', $product_id)->update([
+      'amount' => $amount
     ]);
     return redirect('/admin/arrival');
   }
