@@ -25,7 +25,7 @@ class OrderingController extends Controller
         $data[] = [
           'id' => $count++,
           'ordering_id' => $ordering->id,
-          'product_id' => $ordering->product_id,
+          'product_id' => $ordering->product_id, // TODO: ISBN
           'product_name' => Product::where('id', $ordering->product_id)->first()->name,
           'amount' => $ordering->amount,
           'admin_company_name' => env('USER_COMPANY_NAME'),
