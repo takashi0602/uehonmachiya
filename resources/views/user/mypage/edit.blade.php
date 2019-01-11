@@ -19,14 +19,25 @@
     <div class="row mb-3">
       <div class="col-sm-3">性別</div>
       <div class="col-sm-9">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="sex" id="radios1" value="0">
-          <label class="form-check-label" for="radios1">男性</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="sex" id="radios2" value="1">
-          <label class="form-check-label" for="radios2">女性</label>
-        </div>
+        @if($user->sex)
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="radios1" value="0">
+            <label class="form-check-label" for="radios1">男性</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="radios2" value="1" checked>
+            <label class="form-check-label" for="radios2">女性</label>
+          </div>
+        @else
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="radios1" value="0" checked>
+            <label class="form-check-label" for="radios1">男性</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="radios2" value="1">
+            <label class="form-check-label" for="radios2">女性</label>
+          </div>
+        @endif
       </div>
     </div>
     <div class="row mb-3">
