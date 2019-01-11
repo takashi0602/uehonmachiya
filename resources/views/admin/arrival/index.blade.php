@@ -18,7 +18,13 @@
         <td>{{$arrival->id}}</th>
         <td>{{$suppliers[$count]->name}}</th>
         <td>{{$arrival->created_at->format('Y/m/d')}}</td>
-        <td>{{$arrival->status}}</td>
+        <td>
+            @if($arrival->status)
+                入庫済み
+            @else
+                配送済み
+            @endif
+        </td>
         <td><a href data-toggle="modal" data-target="#modal-arrival{{ $arrival->id }}">入庫処理</a></td>
         <td><a href data-toggle="modal" data-target="#modal-sample{{ $arrival->id }}">詳細</a></td>
         <!-- 2.モーダルの配置 -->

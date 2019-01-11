@@ -19,18 +19,18 @@
     <tbody>
     @foreach($data as $ordering)
         <tr>
-            <td>{{ $ordering['id'] }}</td>
+            <td>{{ $ordering['ordering_id'] }}</td>
             <td>{{ $ordering['product_name'] }}</td>
             <td>{{ $ordering['product_id'] }}</td> {{-- TODO:ISBNに --}}
             <td>{{ $ordering['amount'] }}</td>
             <td>{{ $ordering['admin_company_name'] }}</td>
             <td>{{ $ordering['created_at']->format('Y/m/d') }}</td>
             <td>
-                <a href data-toggle="modal" data-target="#OrderingModal{{ $ordering['id'] }}">詳細</a>
+                <a href data-toggle="modal" data-target="#OrderingModal{{ $ordering['ordering_id'] }}">詳細</a>
             </td>
         </tr>
         <!-- Modal -->
-        <div class="modal fade bd-example-modal-lg" id="OrderingModal{{ $ordering['id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade bd-example-modal-lg" id="OrderingModal{{ $ordering['ordering_id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -42,7 +42,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-3">発注番号</div>
-                            <div class="col-9">{{ $ordering['id'] }}</div>
+                            <div class="col-9">{{ $ordering['ordering_id'] }}</div>
                         </div>
                         <div class="row">
                             <div class="col-3">発注日</div>
@@ -74,8 +74,12 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                        <button type="button" class="btn btn-primary">出庫する</button>
+                        <form action="{{ url('/supplier/ordering/shipment') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="ordering_id" value="{{ $ordering['ordering_id'] }}">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                            <button type="submit" class="btn btn-primary">出庫する</button>
+                        </form>
                     </div>
                 </div>
             </div>

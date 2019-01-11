@@ -127,6 +127,9 @@ Route::prefix('supplier')->group(function () {
   // 発注一覧
   Route::get('/ordering', 'Supplier\OrderingController@index');
 
+  // 出庫処理
+  Route::post('/ordering/shipment', 'Supplier\OrderingController@shipment');
+
   // 出庫済み一覧
   Route::get('/shipped', 'Supplier\ShippedController@index');
 
@@ -179,26 +182,6 @@ Route::get('/mypage/gift', 'MyPageController@gift');
 Route::post('/mypage/gift/add', 'MyPageController@add');
 
 // お問い合わせ
-Route::get('/contact', function () {
-  return view('user.contact');
-});
-
-
-// マルチ認証
-//Route::group(['prefix' => 'supplier'], function() {
-//  Route::get('/',         function () { return redirect('/supplier/home'); });
-//  Route::get('login',     'Supplier\LoginController@showLoginForm')->name('supplier.login');
-//  Route::post('login',    'Supplier\LoginController@login');
-//});
-//
-//
-//Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {
-//  Route::post('logout',   'Supplier\LoginController@logout')->name('supplier.logout');
-//  Route::get('home',      'Supplier\HomeController@index')->name('supplier.home');
-//});
-
-
-//Route::group(['prefix' => 'supplier', 'middleware' => 'auth:supplier'], function() {
-//  Route::post('logout',   'Supplier\LoginController@logout')->name('supplier.logout');
-//  Route::get('home',      'Supplier\HomeController@index')->name('supplier.home');
+//Route::get('/contact', function () {
+//  return view('user.contact');
 //});

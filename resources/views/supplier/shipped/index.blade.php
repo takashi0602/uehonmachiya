@@ -19,18 +19,18 @@
     <tbody>
     @foreach($data as $arrival)
         <tr>
-            <td>{{ $arrival['id'] }}</td>
+            <td>{{ $arrival['shipped_id'] }}</td>
             <td>{{ $arrival['product_name'] }}</td>
             <td>{{ $arrival['product_id'] }}</td> {{-- TODO:ISBNに --}}
             <td>{{ $arrival['amount'] }}</td>
             <td>{{ $arrival['admin_company_name'] }}</td>
             <td>{{ $arrival['created_at']->format('Y/m/d') }}</td>
             <td>
-                <a href data-toggle="modal" data-target="#OrderingModal{{ $arrival['id'] }}">詳細</a>
+                <a href data-toggle="modal" data-target="#OrderingModal{{ $arrival['shipped_id'] }}">詳細</a>
             </td>
         </tr>
         <!-- Modal -->
-        <div class="modal fade bd-example-modal-lg" id="OrderingModal{{ $arrival['id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade bd-example-modal-lg" id="OrderingModal{{ $arrival['shipped_id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -42,7 +42,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-3">出庫番号</div>
-                            <div class="col-9">{{ $arrival['id'] }}</div>
+                            <div class="col-9">{{ $arrival['shipped_id'] }}</div>
                         </div>
                         <div class="row">
                             <div class="col-3">出庫日</div>

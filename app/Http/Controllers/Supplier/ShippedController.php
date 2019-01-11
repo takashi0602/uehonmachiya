@@ -17,13 +17,12 @@ class ShippedController extends Controller
 
     public function index()
     {
-      $count = 1;
       $data = [];
-      $arrivals = Arrival::where('supplier_id', Auth::guard('supplier')->user()->id)->get();
+      $arrivals = Arrival::where('supplier_id', Auth::guard('supplier')->user()->id)
+        ->orderby('id', 'desc')->get();
       foreach ($arrivals as $arrival) {
         $data[] = [
-          'id' => $count++,
-          'shipment_id' => $arrival->id,
+          'shipped_id' => $arrival->id,
           'product_id' => $arrival->product_id, // TODO: ISBN
           'product_name' => Product::where('id', $arrival->product_id)->first()->name,
           'amount' => $arrival->amount,
