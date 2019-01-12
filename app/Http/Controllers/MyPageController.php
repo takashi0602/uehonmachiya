@@ -69,7 +69,8 @@ class MyPageController extends Controller
         'author' => $product->author,
         'description' => $product->description,
         'price' => $product->sales_price,
-        'total' => $product->sales_price * $order->amount
+        'total' => $product->sales_price * $order->amount,
+        'status' => $order->status
       ];
     }
 

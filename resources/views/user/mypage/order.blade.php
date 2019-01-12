@@ -9,6 +9,7 @@
         <th scope="col">商品名</th>
         <th scope="col">冊数</th>
         <th scope="col">値段</th>
+        <th scope="col">状況</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -20,10 +21,16 @@
           <td>{{ $d["amount"] }}</td>
           <td>{{ $d["total"] }}</td>
           <td>
+            @if($d["status"])
+              <span class="text-success">配送済み</span>
+            @else
+              <span class="text-secondary">配送待ち</span>
+            @endif
+          </td>
+          <td>
             <a href data-toggle="modal" data-target="#detail{{ $d["id"] }}">詳細</a>
           </td>
         </tr>
-
         <div class="modal fade" id="detail{{ $d["id"] }}" tabindex="-1" role="dialog" aria-labelledby="detail{{ $d["id"] }}Title" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
