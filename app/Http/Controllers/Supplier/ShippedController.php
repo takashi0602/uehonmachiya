@@ -23,7 +23,7 @@ class ShippedController extends Controller
       foreach ($arrivals as $arrival) {
         $data[] = [
           'shipped_id' => $arrival->id,
-          'product_id' => $arrival->product_id, // TODO: ISBN
+          'isbn' => Product::where('id', $arrival->product_id)->first()->isbn,
           'product_name' => Product::where('id', $arrival->product_id)->first()->name,
           'amount' => $arrival->amount,
           'admin_company_name' => env('USER_COMPANY_NAME'),

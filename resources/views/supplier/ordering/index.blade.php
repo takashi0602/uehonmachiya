@@ -21,7 +21,7 @@
         <tr>
             <td>{{ $ordering['ordering_id'] }}</td>
             <td>{{ $ordering['product_name'] }}</td>
-            <td>{{ $ordering['product_id'] }}</td> {{-- TODO:ISBNに --}}
+            <td>{{ $ordering['isbn'] }}</td>
             <td>{{ $ordering['amount'] }}</td>
             <td>{{ $ordering['admin_company_name'] }}</td>
             <td>{{ $ordering['created_at']->format('Y/m/d') }}</td>
@@ -53,8 +53,8 @@
                             <div class="col-9">{{ $ordering['product_name'] }}</div>
                         </div>
                         <div class="row">
-                            <div class="col-3">ISBN</div>{{-- TODO:ISBNに --}}
-                            <div class="col-9">{{ $ordering['product_id'] }}</div>
+                            <div class="col-3">ISBN</div>
+                            <div class="col-9">{{ $ordering['isbn'] }}</div>
                         </div>
                         <div class="row">
                             <div class="col-3">数量</div>
