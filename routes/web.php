@@ -21,92 +21,94 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // 管理者
 Route::prefix('admin')->group(function () {
+  Route::group(['middleware' => 'auth.very_basic'], function(){
 
-  // 商品一覧
-  Route::get('/product', 'Admin\ProductController@index');
+    // 商品一覧
+    Route::get('/product', 'Admin\ProductController@index');
 
-  // 商品追加
-  Route::get('/product/add', 'Admin\ProductController@add');
+    // 商品追加
+    Route::get('/product/add', 'Admin\ProductController@add');
 
-  // 商品追加機能
-  Route::post('/product/add/create', 'Admin\ProductController@create');
+    // 商品追加機能
+    Route::post('/product/add/create', 'Admin\ProductController@create');
 
-  // 商品変更
-  Route::get('/product/edit', function () {
-    return view('admin.product.edit');
+    // 商品変更
+    Route::get('/product/edit', function () {
+      return view('admin.product.edit');
+    });
+
+    // 入庫先一覧
+    Route::get('/supplier', 'Admin\SupplierController@index');
+
+    // 入庫先追加
+    Route::get('/supplier/add', 'Admin\SupplierController@add');
+
+    // 入庫先追加機能
+    Route::post('/supplier/add/create', 'Admin\SupplierController@create');
+
+    // 入庫先変更
+    Route::get('/supplier/edit', function () {
+      return view('admin.supplier.edit');
+    });
+
+    // 会員一覧
+    Route::get('/customer', 'Admin\CustomerController@index');
+
+    // 注文一覧
+    Route::get('/order', 'Admin\OrderController@index');
+
+    // 注文->出庫
+    Route::post('/order/shipment', 'Admin\OrderController@shipment');
+
+    // 注文詳細
+    Route::get('/order/detail', function () {
+      return view('admin.order.detail');
+    });
+
+    // 発注一覧
+    Route::get('/ordering', 'Admin\OrderingController@index');
+
+    // 発注詳細
+    Route::get('/ordering/detail', function () {
+      return view('admin.ordering.detail');
+    });
+
+    // 発注処理
+    Route::get('/ordering/process', 'Admin\OrderingController@process');
+
+    // 発注作成
+    Route::post('/ordering/process/create', 'Admin\OrderingController@create');
+
+    // 入庫一覧
+    Route::get('/arrival', 'Admin\ArrivalController@index');
+
+    //
+    Route::post('/arrival/processing', 'Admin\ArrivalController@processing');
+
+    // 入庫詳細
+    Route::get('/arrival/detail', function () {
+      return view('admin.arrival.detail');
+    });
+
+    // 出庫一覧
+    Route::get('/shipment', 'Admin\ShipmentController@index');
+
+    // 出庫詳細
+    Route::get('/shipment/detail', function () {
+      return view('admin.shipment.detail');
+    });
+
+    // 在庫一覧
+    Route::get('/stock', 'Admin\StockController@index');
+
+    // 売り上げ一覧
+    Route::get('/sales', function () {
+      return view('admin.sales');
+    });
+
+    // ランキング一覧
+    Route::get('/rank', 'Admin\RankController@index');
   });
-
-  // 入庫先一覧
-  Route::get('/supplier', 'Admin\SupplierController@index');
-
-  // 入庫先追加
-  Route::get('/supplier/add', 'Admin\SupplierController@add');
-
-  // 入庫先追加機能
-  Route::post('/supplier/add/create', 'Admin\SupplierController@create');
-
-  // 入庫先変更
-  Route::get('/supplier/edit', function () {
-    return view('admin.supplier.edit');
-  });
-
-  // 会員一覧
-  Route::get('/customer', 'Admin\CustomerController@index');
-
-  // 注文一覧
-  Route::get('/order', 'Admin\OrderController@index');
-
-  // 注文->出庫
-  Route::post('/order/shipment', 'Admin\OrderController@shipment');
-
-  // 注文詳細
-  Route::get('/order/detail', function () {
-    return view('admin.order.detail');
-  });
-
-  // 発注一覧
-  Route::get('/ordering', 'Admin\OrderingController@index');
-
-  // 発注詳細
-  Route::get('/ordering/detail', function () {
-    return view('admin.ordering.detail');
-  });
-
-  // 発注処理
-  Route::get('/ordering/process', 'Admin\OrderingController@process');
-
-  // 発注作成
-  Route::post('/ordering/process/create', 'Admin\OrderingController@create');
-
-  // 入庫一覧
-  Route::get('/arrival', 'Admin\ArrivalController@index');
-
-  //
-  Route::post('/arrival/processing', 'Admin\ArrivalController@processing');
-
-  // 入庫詳細
-  Route::get('/arrival/detail', function () {
-    return view('admin.arrival.detail');
-  });
-
-  // 出庫一覧
-  Route::get('/shipment', 'Admin\ShipmentController@index');
-
-  // 出庫詳細
-  Route::get('/shipment/detail', function () {
-    return view('admin.shipment.detail');
-  });
-
-  // 在庫一覧
-  Route::get('/stock', 'Admin\StockController@index');
-
-  // 売り上げ一覧
-  Route::get('/sales', function () {
-    return view('admin.sales');
-  });
-
-  // ランキング一覧
-  Route::get('/rank', 'Admin\RankController@index');
 
   // お問い合わせ一覧 TODO: 時間があれば
 //  Route::get('/contact', function () {
