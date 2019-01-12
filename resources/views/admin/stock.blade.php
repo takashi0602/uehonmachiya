@@ -30,24 +30,24 @@
             <th scope="col"></th>
         </tr>
         </thead>
-        @foreach($stocks as $stock)
+        @foreach($data as $stock)
             <tr>
-                <td>{{ $stock->id }}</td>
-                <td>{{ $products[$count++]->name }}</td>
-                <td class="text-right">{{ $stock->amount }}冊</td>
-                <td class="text-right">{{ $stock->safety }}冊</td>
-                @if($stock->amount - $stock->safety >= 0)
+                <td>{{ $stock['id'] }}</td>
+                <td>{{ $stock['name'] }}</td>
+                <td class="text-right">{{ $stock['amount'] }}冊</td>
+                <td class="text-right">{{ $stock['safety'] }}冊</td>
+                @if($stock['amount'] - $stock['safety'] >= 0)
                     <td class="text-success text-center">○</td>
-                @elseif($stock->amount == 0)
+                @elseif($stock['amount'] == 0)
                     <td class="text-danger text-center">×</td>
                 @else
                     <td class="text-warning text-center">▲</td>
                 @endif
                 <td>
-                    <a href data-toggle="modal" data-target="#StockModal{{ $stock->product_id }}">発注処理</a>
+                    <a href data-toggle="modal" data-target="#StockModal{{ $stock['product_id'] }}">発注処理</a>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="StockModal{{ $stock->product_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="StockModal{{ $stock['product_id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -61,15 +61,15 @@
                                         @csrf
                                         <div class="row mb-3">
                                             <div class="col-3">商品名</div>
-                                            <div class="col-9"></div>
+                                            <div class="col-9">{{ $stock['name'] }}</div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-3">入庫先名</div>
-                                            <div class="col-9"></div>
+                                            <div class="col-9">{{ $stock['supplier'] }}</div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-3">仕入れ単価</div>
-                                            <div class="col-9">1冊：円</div>
+                                            <div class="col-9">1冊：{{ $stock['price'] }}円</div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-3">発注数</div>
@@ -78,7 +78,7 @@
                                             </div>
                                         </div>
                                         <div class="text-right pt-3">
-                                            <input type="hidden" value="{{ $stock->product_id }}" name="product_id">
+                                            <input type="hidden" value="{{ $stock['product_id'] }}" name="product_id">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
                                             <button type="submit" class="btn btn-success">発注する</button>
                                         </div>

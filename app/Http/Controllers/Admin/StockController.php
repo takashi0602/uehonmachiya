@@ -6,23 +6,28 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Stock;
 use App\Models\Product;
-
-
+use App\Models\Supplier;
 
 class StockController extends Controller
 {
     public function index()
     {
-    $products = [];
-    $count = 0;
-    $stocks = Stock::select("id","product_id","amount","safety")->get();
+    $data = [];
+    $stocks = Stock::get();
     foreach ($stocks as $stock) {
-        $products[] = Product::select('name')->where('id', $stock->product_id)->first();
+        $data[] = [
+          'id' => $stock->id,
+          'product_id' => $stock->product_id,
+          'name' => Product::where('id', $stock->product_id)->first()->name,
+          'price' => Product::where('id', $stock->product_id)->first()->price,
+          'supplier' => Supplier::where(
+            'id', Product::where('id', $stock->product_id)->first()->supplier_id)->first()->name,
+          'amount' => $stock->amount,
+          'safety' => $stock->safety
+        ];
     }
     return view('admin.stock', [
-        'stocks' => $stocks,
-        'products' => $products,
-        'count' => $count
+        'data' => $data
     ]);
 }
 }
