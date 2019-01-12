@@ -65,6 +65,7 @@ class MyPageController extends Controller
         'id' => $product->id,
         'date' => $order->created_at->format('Y/m/d'),
         'amount' => $order->amount,
+        'isbn' => $product->isbn,
         'name' => $product->name,
         'author' => $product->author,
         'description' => $product->description,

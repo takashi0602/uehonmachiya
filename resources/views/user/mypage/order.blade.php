@@ -18,7 +18,7 @@
         <tr>
           <td>{{ $d["date"] }}</td>
           <td>{{ $d["name"] }}</td>
-          <td>{{ $d["amount"] }}</td>
+          <td>{{ $d["amount"] }}冊</td>
           <td>{{ $d["total"] }}</td>
           <td>
             @if($d["status"])
@@ -42,6 +42,11 @@
               </div>
               <div class="modal-body">
                 <div>著者：{{ $d["author"] }}</div>
+                <div>
+                  @isset($d["isbn"])
+                    ISBN：{{ $d["isbn"] }}
+                  @endisset
+                </div>
                 <p class="mb-3">{{ $d["description"] }}</p>
                 <div class="mb-3 text-right">1冊：{{ $d["price"] }}円</div>
               </div>

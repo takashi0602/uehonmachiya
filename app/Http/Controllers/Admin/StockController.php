@@ -13,7 +13,7 @@ class StockController extends Controller
     public function index()
     {
     $data = [];
-    $stocks = Stock::get();
+    $stocks = Stock::all();
     foreach ($stocks as $stock) {
         $data[] = [
           'id' => $stock->id,

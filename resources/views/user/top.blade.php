@@ -25,6 +25,11 @@
             <form action="/cart/add" method="post">
               @csrf
               <div>著者：{{ $product->author }}</div>
+              <div>
+                @isset($product->isbn)
+                  ISBN：{{ $product->isbn }}
+                @endisset
+              </div>
               <p>{{ $product->description }}</p>
               <div class="text-right">
                 <div class="mb-3">
