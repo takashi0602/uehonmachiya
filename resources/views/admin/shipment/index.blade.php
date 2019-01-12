@@ -51,12 +51,14 @@
                                 </div>
                                 <div class="mb-3">
                                     <div class="row mb-1">
-                                        <div class="col">商品名</div>
+                                        <div class="col-6">商品名</div>
+                                        <div class="col">ISBN</div>
                                         <div class="col">注文数</div>
                                     </div>
                                     @for($i = 0; $i < count($shipment['product_name']); $i++)
                                         <div class="row mb-1">
-                                            <div class="col">{{ $shipment['product_name'][$i] }}</div>
+                                            <div class="col-6">{{ $shipment['product_name'][$i] }}</div>
+                                            <div class="col">{{ $shipment['isbn'][$i] }}</div>
                                             <div class="col">{{ $shipment['amount'][$i] }}冊</div>
                                         </div>
                                     @endfor

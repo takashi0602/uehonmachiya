@@ -1,5 +1,5 @@
-
 @extends('admin.layouts.app')
+
 @section('content')
 <h1>注文一覧</h1>
 
@@ -10,7 +10,6 @@
         <th>会員名</th>
         <th>注文日</th>
         <th></th>
-
     </tr>
     </thead>
     <tbody>
@@ -53,13 +52,15 @@
                                 </div>
                                 <div class="mb-3">
                                     <div class="row mb-1">
-                                        <div class="col-6">商品名</div>
+                                        <div class="col-5">商品名</div>
+                                        <div class="col-3">ISBN</div>
                                         <div class="col">注文数</div>
                                         <div class="col">在庫数</div>
                                     </div>
                                     @for($i = 0; $i < count($order['product_name']); $i++)
                                         <div class="row mb-1">
-                                            <div class="col-6">{{ $order['product_name'][$i] }}</div>
+                                            <div class="col-5">{{ $order['product_name'][$i] }}</div>
+                                            <div class="col-3">{{ $order['isbn'][$i] }}</div>
                                             <div class="col">{{ $order['amount'][$i] }}冊</div>
                                             <div class="col">{{ $order['stock'][$i] }}冊</div>
                                         </div>
@@ -95,5 +96,4 @@
     @endforeach
     </tbody>
 </table>
-
 @endsection

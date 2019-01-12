@@ -20,14 +20,16 @@ class ShipmentController extends Controller
       $product_id[] = [
         'shipment_id' => $shipment->shipment_id,
         'product_name' => Product::where('id', $shipment->product_id)->first()->name,
+        'isbn' => Product::where('id', $shipment->product_id)->first()->isbn,
         'amount' => $shipment->amount,
         'sales' => Product::where('id', $shipment->product_id)->first()->sales_price * $shipment->amount,
       ];
     }
 
     foreach($product_id as $p) {
-      $product[] = $product_name[$p['shipment_id'] - 1] = ['name' => [], 'amount' => [], 'sales' => []];
+      $product[] = $product_name[$p['shipment_id'] - 1] = ['name' => [], 'isbn' => [], 'amount' => [], 'sales' => []];
       array_push($product[$p['shipment_id'] - 1]['name'], $p['product_name']);
+      array_push($product[$p['shipment_id'] - 1]['isbn'], $p['isbn']);
       array_push($product[$p['shipment_id'] - 1]['amount'], $p['amount']);
       array_push($product[$p['shipment_id'] - 1]['sales'], $p['sales']);
     }
@@ -39,12 +41,14 @@ class ShipmentController extends Controller
         'postal' => User::where('id', $shipment_id->user_id)->first()->postal,
         'address' => User::where('id', $shipment_id->user_id)->first()->address,
         'product_name' => $product[$shipment_id->shipment_id - 1]['name'],
+        'isbn' => $product[$shipment_id->shipment_id - 1]['isbn'],
         'amount' => $product[$shipment_id->shipment_id - 1]['amount'],
         'sales' => $product[$shipment_id->shipment_id - 1]['sales'],
         'created_at' => $shipment_id->created_at->format('Y/m/d'),
         'status' => $shipment_id->status
       ];
     }
+    arsort($data);
     return view('admin.shipment.index', [
       'data' => $data
     ]);

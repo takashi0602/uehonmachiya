@@ -9,8 +9,9 @@
     <thead>
     <tr>
         <th scope="col">商品番号</th>
-        <th scope="col">著者</th>
         <th scope="col">商品名</th>
+        <th scope="col">著者</th>
+        <th scope="col">ISBN</th>
         <th scope="col">仕入価格</th>
         <th scope="col">販売価格</th>
         <th scope="col">ジャンル</th>
@@ -21,8 +22,9 @@
     @foreach($products as $product)
     <tr>
         <td>{{$product->id}}</td>
-        <td>{{$product->author}}</td>
         <td>{{$product->name}}</td>
+        <td>{{$product->author}}</td>
+        <td>{{$product->isbn}}</td>
         <td>{{$product->price}}</td>
         <td>{{$product->sales_price}}</td>
         <td>{{ $categories[$count]->name }}</td>

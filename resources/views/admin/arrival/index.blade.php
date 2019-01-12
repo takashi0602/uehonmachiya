@@ -6,7 +6,6 @@
     <tr>
         <th scope="col">入庫番号</th>
         <th scope="col">入庫先名</th>
-        <th scope="col">入庫日</th>
         <th scope="col">状況</th>
         <th scope="col">入庫処理</th>
         <th scope="col"></th>
@@ -15,14 +14,13 @@
     <tbody>
     @foreach($arrivals as $arrival)
     <tr>
-        <td>{{$arrival->id}}</th>
-        <td>{{$suppliers[$count]->name}}</th>
-        <td>{{$arrival->created_at->format('Y/m/d')}}</td>
+        <td>{{ $arrival->id }}</th>
+        <td>{{ $suppliers[$count]->name }}</th>
         <td>
             @if($arrival->status)
                 <span class="text-success">入庫済み</span>
             @else
-                <span class="text-info">配送済み</span>
+                <span class="text-info">配送中</span>
             @endif
         </td>
         <td>
@@ -33,7 +31,7 @@
             @endif
         </td>
         <div class="modal" id="modal-arrival{{ $arrival->id }}" tabindex="-1">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title" id="modal-label">入庫処理</h2>
@@ -65,29 +63,33 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title" id="modal-label">{{$arrival->id}}の詳細</h2>
+                        <h2 class="modal-title" id="modal-label">入庫詳細</h2>
                         <button type="button" class="close" data-dismiss="modal">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <h3>  <label class="col-sm-4" for="exampleInput" >入庫先名</label></h3>
-                            <div class="col-sm-10">
-                                {{$suppliers[$count]->name}}
-                               </div>
-                           </div>
-                        <div class="form-group">
-                            <h3>  <label class="col-sm-4" for="exampleInput" >商品名</label></h3>
-                            <div class="col-sm-10">
-                                {{$products[$count++]->name}}
-                            </div>
+                        <div class="row">
+                            <div class="col-3">入庫番号</div>
+                            <div class="col-9">{{ $arrival->id }}</div>
                         </div>
-                        <div class="form-group">
-                            <h3>  <label class="col-sm-4" for="exampleInput" >個数</label></h3>
-                            <div class="col-sm-10">
-                                {{$arrival->amount}}
+                        @if($arrival->status)
+                            <div class="row">
+                                <div class="col-3">入庫日</div>
+                                <div class="col-9">{{ $arrival->updated_at->format('Y/m/d') }}</div>
                             </div>
+                        @endif
+                        <div class="row">
+                            <div class="col-3">入庫先</div>
+                            <div class="col-9">{{ $suppliers[$count]->name }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">商品名</div>
+                            <div class="col-9">{{ $products[$count++]->name }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">数量</div>
+                            <div class="col-9">{{ $arrival->amount }}冊</div>
                         </div>
                     </div>
                     <div class="modal-footer">

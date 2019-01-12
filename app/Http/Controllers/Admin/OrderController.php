@@ -23,6 +23,7 @@ class OrderController extends Controller
       $product_id[] = [
         'order_id' => $order->order_id,
         'product_name' => Product::where('id', $order->product_id)->first()->name,
+        'isbn' => Product::where('id', $order->product_id)->first()->isbn,
         'amount' => $order->amount,
         'stock' => Stock::where('product_id', $order->product_id)->first()->amount,
         'sales' => Product::where('id', $order->product_id)->first()->sales_price * $order->amount,
@@ -30,8 +31,9 @@ class OrderController extends Controller
     }
 
     foreach($product_id as $p) {
-      $product[] = $product_name[$p['order_id'] - 1] = ['name' => [], 'amount' => [], 'stock' => [], 'sales' => []];
+      $product[] = $product_name[$p['order_id'] - 1] = ['name' => [], 'isbn' => [], 'amount' => [], 'stock' => [], 'sales' => []];
       array_push($product[$p['order_id'] - 1]['name'], $p['product_name']);
+      array_push($product[$p['order_id'] - 1]['isbn'], $p['isbn']);
       array_push($product[$p['order_id'] - 1]['amount'], $p['amount']);
       array_push($product[$p['order_id'] - 1]['stock'], $p['stock']);
       array_push($product[$p['order_id'] - 1]['sales'], $p['sales']);
@@ -44,6 +46,7 @@ class OrderController extends Controller
         'postal' => User::where('id', $order_id->user_id)->first()->postal,
         'address' => User::where('id', $order_id->user_id)->first()->address,
         'product_name' => $product[$order_id->order_id - 1]['name'],
+        'isbn' => $product[$order_id->order_id - 1]['isbn'],
         'amount' => $product[$order_id->order_id - 1]['amount'],
         'stock' => $product[$order_id->order_id - 1]['stock'],
         'sales' => $product[$order_id->order_id - 1]['sales'],
@@ -88,6 +91,6 @@ class OrderController extends Controller
         'status' => 0
       ]);
     }
-    return redirect('/admin/order');
+    return redirect('/admin/shipment');
   }
 }

@@ -20,8 +20,7 @@ class OrderingController extends Controller
     public function index()
     {
       $data = [];
-      $orderings = Ordering::where('supplier_id', Auth::guard('supplier')->user()->id)
-        ->orderby('id', 'desc')->get();
+      $orderings = Ordering::where('supplier_id', Auth::guard('supplier')->user()->id)->get();
       foreach ($orderings as $ordering) {
         $data[] = [
           'ordering_id' => $ordering->id,

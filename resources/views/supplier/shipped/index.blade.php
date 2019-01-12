@@ -21,8 +21,8 @@
         <tr>
             <td>{{ $arrival['shipped_id'] }}</td>
             <td>{{ $arrival['product_name'] }}</td>
-            <td>{{ $arrival['isbn'] }}</td> {{-- TODO:ISBNに --}}
-            <td>{{ $arrival['amount'] }}</td>
+            <td>{{ $arrival['isbn'] }}</td>
+            <td>{{ $arrival['amount'] }}冊</td>
             <td>{{ $arrival['admin_company_name'] }}</td>
             <td>{{ $arrival['created_at']->format('Y/m/d') }}</td>
             <td>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="row">
                             <div class="col-3">数量</div>
-                            <div class="col-9">{{ $arrival['amount'] }}</div>
+                            <div class="col-9">{{ $arrival['amount'] }}冊</div>
                         </div>
                         <div class="row">
                             <div class="col-3">発注書店</div>

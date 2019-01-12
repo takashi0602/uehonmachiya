@@ -27,9 +27,9 @@
       <div class="w-25"><a href="{{ url('/admin/supplier') }}" class="text-white">入庫先</a></div>
       <div class="w-25"><a href="{{ url('/admin/stock') }}" class="text-white">在庫</a></div>
       <div class="w-25"><a href="{{ url('/admin/order') }}" class="text-white">注文</a></div>
+      <div class="w-25"><a href="{{ url('/admin/shipment') }}" class="text-white">出庫</a></div>
       <div class="w-25"><a href="{{ url('/admin/ordering') }}" class="text-white">発注</a></div>
       <div class="w-25"><a href="{{ url('/admin/arrival') }}" class="text-white">入庫</a></div>
-      <div class="w-25"><a href="{{ url('/admin/shipment') }}" class="text-white">出庫</a></div>
       <div class="w-25"><a href="{{ url('/admin/sales') }}" class="text-white">売上</a></div>
       <div class="w-25"><a href="{{ url('/admin/rank') }}" class="text-white">ランキング</a></div>
       {{--<div class="w-25"><a href="{{ url('/admin/contact') }}" class="text-white">お問い合わせ</a></div>--}}

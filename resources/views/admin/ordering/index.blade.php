@@ -21,7 +21,11 @@
             <td>{{$products[$count++]->name}}</td>
             <td>{{$order->amount}}</td>
             <td>{{$order->created_at->format("Y/m/d")}}</td>
-            <td>{{$order->status}}</td>
+            <td>
+                @if($order->status == 0)
+                    配送待ち
+                @endif
+            </td>
         </tr>
     @endforeach
     </tbody>

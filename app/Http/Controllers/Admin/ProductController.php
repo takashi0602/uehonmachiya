@@ -16,7 +16,7 @@ class ProductController extends Controller
         $suppliers = [];
         $categories = [];
         $count = 0;
-        $products = Product::select("id","name","author","price","sales_price","supplier_id","category_id")->get();
+        $products = Product::select("id", "isbn", "name","author","price","sales_price","supplier_id","category_id")->get();
         foreach ($products as $product) {
             $suppliers[] = Supplier::select('name')->where('id', $product->supplier_id)->first();
         }
