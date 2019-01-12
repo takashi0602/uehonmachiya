@@ -26,6 +26,10 @@ Route::prefix('admin')->group(function () {
     // 商品一覧
     Route::get('/product', 'Admin\ProductController@index');
 
+    // 商品編集
+    Route::get('/product/edit/{id}', 'Admin\ProductController@edit');
+    Route::post('/product/edit', 'Admin\ProductController@post');
+
     // 商品追加
     Route::get('/product/add', 'Admin\ProductController@add');
 
