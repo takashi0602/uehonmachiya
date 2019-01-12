@@ -75,11 +75,11 @@
 
                             <div class="col-md-6">
                                 <div class="form-check mr-3">
-                                    <input class="form-check-input" type="radio" name="sex" id="man" value="0" checked>
+                                    <input class="form-check-input" type="radio" name="sex" id="man" value="0">
                                     <label class="form-check-label" for="man">男</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sex" id="woman" value="1" checked>
+                                    <input class="form-check-input" type="radio" name="sex" id="woman" value="1">
                                     <label class="form-check-label" for="woman">女</label>
                                 </div>
                             </div>

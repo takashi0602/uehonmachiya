@@ -12,7 +12,7 @@
     <tbody>
         @foreach($data as $rank)
             <tr>
-                <td>{{ $count++ }}</td>
+                <td>{{ $rank['rank'] }}</td>
                 <td>{{ $rank['user_name'] }}</td>
                 <td>{{ $rank['money'] }}円</td>
             </tr>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Rank;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -69,7 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'kana' => $data['kana'],
             'email' => $data['email'],
@@ -81,6 +82,13 @@ class RegisterController extends Controller
             'birth' => $data['birth'],
             'point' => 0,
         ]);
+
+        Rank::create([
+            'user_id' => User::orderby('id', 'desc')->first()->id,
+            'money' => 0
+        ]);
+
+        return User::orderby('id', 'desc')->first();
     }
 
     public function userRegistrationForm() {
