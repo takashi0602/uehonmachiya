@@ -46,18 +46,11 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-//        Auth::guard('supplier');
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('supplier')->attempt($credentials)) {
           return redirect('/supplier/ordering');
         }
-//        $this->validateLogin($request);
-//        $email = $request->email;
-//        $password = $request->password;
-//        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-//          return redirect('/supplier/ordering');
-//        }
 
         return redirect()->back();
     }

@@ -7,6 +7,6 @@
   </div>
   <div class="text-right">
     <a href="{{ url('/mypage/order') }}" class="mr-3">注文商品の確認</a>
-    <a href="{{ url('/top') }}">TOPへ戻る</a>
+    <a href="{{ url('/') }}">TOPへ戻る</a>
   </div>
 @endsection

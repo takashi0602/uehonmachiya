@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/top') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     上本町屋
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -41,7 +41,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/top') }}">トップ</a>
+                                <a class="nav-link" href="{{ url('/') }}">トップ</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">ログイン</a>
@@ -53,7 +53,7 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/top') }}">トップ</a>
+                                <a class="nav-link" href="{{ url('/') }}">トップ</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/mypage') }}">

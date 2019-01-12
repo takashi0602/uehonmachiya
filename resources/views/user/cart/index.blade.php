@@ -35,7 +35,7 @@
     </div>
     @if($remaining_points >= 0)
       <div class="text-right">
-        <a href="/top" class="mr-3">商品一覧へ</a>
+        <a href="/" class="mr-3">商品一覧へ</a>
         <a href="/confirm">購入の手続きへ</a>
       </div>
     @else
@@ -44,14 +44,14 @@
         カートから商品を削除するか、ギフトコードを入力し、ポイントを増やして下さい。
       </p>
       <div class="text-right">
-        <a href="/top" class="mr-3">商品一覧へ</a>
+        <a href="/" class="mr-3">商品一覧へ</a>
         <a href="/mypage/gift" class="mr-3">ギフトコード入力画面へ</a>
       </div>
     @endif
   @else
     <p>カートに商品はありません。</p>
     <div class="text-right">
-      <a href="/top" class="mr-3">商品一覧へ</a>
+      <a href="/" class="mr-3">商品一覧へ</a>
     </div>
   @endif
 @endsection
