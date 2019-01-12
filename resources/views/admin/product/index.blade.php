@@ -25,8 +25,8 @@
         <td>{{$product->name}}</td>
         <td>{{$product->author}}</td>
         <td>{{$product->isbn}}</td>
-        <td>{{$product->price}}</td>
-        <td>{{$product->sales_price}}</td>
+        <td>{{$product->price}}円</td>
+        <td>{{$product->sales_price}}円</td>
         <td>{{ $categories[$count]->name }}</td>
         <td>{{ $suppliers[$count++]->name }}</td>
     </tr>

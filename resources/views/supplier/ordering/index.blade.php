@@ -66,7 +66,7 @@
                         </div>
                         <div class="row">
                             <div class="col-3">郵便番号</div>
-                            <div class="col-9">{{ $ordering['admin_postal'] }}</div>
+                            <div class="col-9">〒{{ $ordering['admin_postal'] }}</div>
                         </div>
                         <div class="row">
                             <div class="col-3">住所</div>

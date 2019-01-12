@@ -9,8 +9,8 @@
     <tr>
         <th scope="col">入庫先番号</th>
         <th scope="col">入庫先名</th>
-        <th scope="col">入庫先郵便番号</th>
-        <th scope="col">入庫先電話番号(TEL)</th>
+        <th scope="col">郵便番号</th>
+        <th scope="col">電話番号</th>
         <th scope="col">メールアドレス</th>
         <th scope="col">代表者名</th>
     </thead>
@@ -20,7 +20,7 @@
         <tr>
             <td>{{ $supplier->id }}</td>
             <td>{{ $supplier->name }}</td>
-            <td>{{ $supplier->postal }}</td>
+            <td>〒{{ $supplier->postal }}</td>
             <td>{{ $supplier->tel }}</td>
             <td>{{ $supplier->email }}</td>
             <td>{{ $supplier->president }}</td>

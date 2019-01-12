@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-auto">郵便番号</div>
-                                    <div class="col-auto">{{ $shipment['postal'] }}</div>
+                                    <div class="col-auto">〒{{ $shipment['postal'] }}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-auto">住所</div>

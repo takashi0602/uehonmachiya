@@ -21,7 +21,7 @@
     <tr>
         <td>{{$customer->id}}</td>
         <td>{{$customer->name}}</td>
-        <td>{{$customer->postal}}</td>
+        <td>〒{{$customer->postal}}</td>
         <td>{{$customer->address}}</td>
         <td>{{$customer->email}}</td>
         <td>{{$customer->birth}}</td>
