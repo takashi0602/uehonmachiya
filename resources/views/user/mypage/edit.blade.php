@@ -53,6 +53,19 @@
       </div>
     </div>
     <div class="row mb-3">
+      <div class="col-sm-3">メールアドレス</div>
+      <div class="col-sm-9">
+        <input class="form-control" type="email" value="{{ $user->email }}" name="email">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-sm-3">パスワード</div>
+      <div class="col-sm-9">
+        <input class="form-control" type="password" value="" name="password">
+      </div>
+    </div>
+
+    <div class="row mb-3">
       <div class="col-sm-3">電話番号</div>
       <div class="col-sm-9">
         <input class="form-control" type="text" value="{{ $user->tel }}" name="tel">

@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Gift;
 use App\Http\Requests\UserEdit;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class MyPageController extends Controller
 {
@@ -33,8 +34,7 @@ class MyPageController extends Controller
 
   public function edit()
   {
-    $user = User::select('name', 'kana', 'sex', 'postal', 'address', 'tel', 'birth')
-      ->where('id', Auth::user()->id)->first();
+    $user = User::where('id', Auth::user()->id)->first();
     return view('user.mypage.edit', [
       'user' => $user
     ]);
@@ -46,11 +46,17 @@ class MyPageController extends Controller
         'name' => $request->name,
         'kana' => $request->kana,
         'sex' => $request->sex,
+        'email' => $request->email,
         'postal' => $request->postal,
         'address' => $request->address,
         'tel' => $request->tel,
         'birth' => $request->birth
+    ]);
+    if($request->password) {
+      User::where('id', Auth::user()->id)->update([
+        'password' => Hash::make($request->password)
       ]);
+    }
     return redirect('/mypage/edit');
   }
 
