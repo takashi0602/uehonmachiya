@@ -32,6 +32,7 @@
       <div class="w-25"><a href="{{ url('/admin/arrival') }}" class="text-white">入庫</a></div>
       <div class="w-25"><a href="{{ url('/admin/sales') }}" class="text-white">売上</a></div>
       <div class="w-25"><a href="{{ url('/admin/rank') }}" class="text-white">ランキング</a></div>
+      <div class="w-25"><a href="{{ url('/admin/gift') }}" class="text-white">ギフトコード</a></div>
       {{--<div class="w-25"><a href="{{ url('/admin/contact') }}" class="text-white">お問い合わせ</a></div>--}}
     </div>
   </div>

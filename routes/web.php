@@ -86,7 +86,7 @@ Route::prefix('admin')->group(function () {
     // 入庫一覧
     Route::get('/arrival', 'Admin\ArrivalController@index');
 
-    //
+    // 入庫処理
     Route::post('/arrival/processing', 'Admin\ArrivalController@processing');
 
     // 入庫詳細
@@ -112,6 +112,10 @@ Route::prefix('admin')->group(function () {
 
     // ランキング一覧
     Route::get('/rank', 'Admin\RankController@index');
+
+    // ギフトコード
+    Route::get('/gift', 'Admin\GiftController@index');
+    Route::post('/gift/create', 'Admin\GiftController@create');
   });
 
   // お問い合わせ一覧 TODO: 時間があれば
