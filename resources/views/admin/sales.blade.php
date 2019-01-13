@@ -4,28 +4,21 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">NO(会員番号)</th>
         <th scope="col">日付</th>
         <th scope="col">商品名</th>
-        <th scope="col">個数</th>
-        <th scope="col">合計</th>
-        <th scope="col">金額</th>
-        <th scope="col">利益</th>
-        <th scope="col">購入者名</th>
+        <th scope="col">数量</th>
+        <th scope="col">売上</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>。。。</td>
-        <td>。。。</td>
-        <td>。。。</td>
-        <td>。。。</td>
-        <td>。。。</td>
-        <td>。。。</td>
-        <td>。。。</td>
-    </tr>
-
+    @foreach($data as $sales)
+        <tr>
+            <td>{{ $sales['created_at']->format('Y/m/d') }}</td>
+            <td>{{ $sales['name'] }}</td>
+            <td>{{ $sales['amount'] }}冊</td>
+            <td>{{ $sales['sales'] }}円</td>
+        </tr>
+    @endforeach
     </tbody>
 </table>
-    @endsection
+@endsection

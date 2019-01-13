@@ -106,9 +106,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/stock', 'Admin\StockController@index');
 
     // 売り上げ一覧
-    Route::get('/sales', function () {
-      return view('admin.sales');
-    });
+    Route::get('/sales', 'Admin\SalesController@index');
 
     // ランキング一覧
     Route::get('/rank', 'Admin\RankController@index');

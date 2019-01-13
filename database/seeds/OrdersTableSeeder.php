@@ -46,6 +46,7 @@ class OrdersTableSeeder extends Seeder
                 'amount' => $amount[$i],
                 'status' => 0,
                 'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
             ]);
         }
     }
