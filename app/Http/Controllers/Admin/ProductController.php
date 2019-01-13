@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Supplier;
 use App\Models\Category;
 use App\Models\Stock;
+use App\Http\Requests\ProductCreatePost;
 use App\Http\Requests\ProductEditPost;
 
 class ProductController extends Controller
@@ -44,21 +45,23 @@ class ProductController extends Controller
       ]);
     }
 
-    public function create(Request $request)
+    public function create(ProductCreatePost $request)
     {
-      // TODO imgをstorageに追加する
-      // TODO フォームリクエストでバリデーション
+      $number = Product::orderBy('id', 'desc')->first()->id + 1;
+      $filename = $request->file('img')->getClientOriginalName();
+      $path = $request->file('img')->storeAs('public',$number . $filename);
       if($request->category_name) {
         Category::create([
           'name' => $request->category_name
         ]);
         Product::create([
-          'category_id' => Category::orderBy('created_at', 'desc')->first()->id,
+          'category_id' => Category::orderBy('id', 'desc')->first()->id,
           'supplier_id' => $request->supplier_id,
           'name' => $request->name,
           'author' => $request->author,
           'company' => $request->company,
-          'img' => $request->img,
+          'isbn' => $request->isbn,
+          'img' => $number . $filename,
           'description' => $request->description,
           'price' => $request->price,
           'sales_price' => $request->sales_price,
@@ -70,7 +73,8 @@ class ProductController extends Controller
           'name' => $request->name,
           'author' => $request->author,
           'company' => $request->company,
-          'img' => $request->img,
+          'isbn' => $request->isbn,
+          'img' => $number . $filename,
           'description' => $request->description,
           'price' => $request->price,
           'sales_price' => $request->sales_price,
@@ -78,7 +82,7 @@ class ProductController extends Controller
       }
 
       Stock::create([
-        'product_id' => Product::orderBy('created_at', 'desc')->first()->id,
+        'product_id' => Product::orderBy('id', 'desc')->first()->id,
         'amount' => 0,
         'safety' => $request->safety
       ]);
@@ -102,28 +106,32 @@ class ProductController extends Controller
 
     public function post(ProductEditPost $request)
     {
+      Product::where('id', $request->id)->update([
+        'name' => $request->product_name,
+        'author' => $request->author,
+        'company' => $request->company,
+        'isbn' => $request->isbn,
+        'description' => $request->description,
+        'price' => $request->price,
+        'sales_price' => $request->sales_price
+      ]);
+      if($request->img) {
+        $filename = $request->file('img')->getClientOriginalName();
+        $path = $request->file('img')->storeAs('public', $request->id . $filename);
+        Product::where('id', $request->id)->update([
+          'img' => $request->id . $filename
+        ]);
+      }
       if($request->category_name) {
         Category::create([
           'name' => $request->category_name
         ]);
         Product::where('id', $request->id)->update([
-          'name' => $request->product_name,
-          'category_id' => Category::where('name', $request->category_name)->first()->id,
-          'author' => $request->author,
-          'company' => $request->company,
-          'isbn' => $request->isbn,
-          'price' => $request->price,
-          'sales_price' => $request->sales_price
+          'category_id' => Category::where('name', $request->category_name)->first()->id
         ]);
       } else {
         Product::where('id', $request->id)->update([
-          'name' => $request->product_name,
-          'category_id' => $request->category_id,
-          'author' => $request->author,
-          'company' => $request->company,
-          'isbn' => $request->isbn,
-          'price' => $request->price,
-          'sales_price' => $request->sales_price
+          'category_id' => $request->category_id
         ]);
       }
       Stock::where('product_id', $request->id)->update([

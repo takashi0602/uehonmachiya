@@ -5,7 +5,7 @@
 <div class="d-flex flex-wrap justify-content-between">
   @foreach($products as $product)
     <div class="mx-4 product-cursor mb-5" data-toggle="modal" data-target="#Modal{{ $product->id }}">
-      <div class="product-img mb-3" style="background-image: url('{{ $product->img }}');"></div>
+      <div class="product-img mb-3" style="background-image: url('{{ asset('storage/' . $product->img) }}'); background-repeat: no-repeat; background-position: center;"></div>
       <h5 class="mb-0 word-break">{{ $product->name }}</h5>
       <div>{{ $product->author }}</div>
       <div class="text-right">{{ $product->sales_price }}<span>円</span></div>
@@ -25,11 +25,14 @@
             <form action="/cart/add" method="post">
               @csrf
               <div>著者：{{ $product->author }}</div>
+              <div>出版社：{{ $product->company }}</div>
+              <div>ジャンル：{{ $categories[$count++]->name }}</div>
               <div>
                 @isset($product->isbn)
                   ISBN：{{ $product->isbn }}
                 @endisset
               </div>
+              <div>説明</div>
               <p>{{ $product->description }}</p>
               <div class="text-right">
                 <div class="mb-3">

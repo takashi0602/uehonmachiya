@@ -43,14 +43,14 @@ class ProductsTableSeeder extends Seeder
         '堀越耕平','空知英秋'
       ];
       $img = [
-        'http://placehold.it/300/?text=book1', 'http://placehold.it/300/?text=book2', 'http://placehold.it/300/?text=book3','http://placehold.it/300/?text=book4',
-        'http://placehold.it/300/?text=book5', 'http://placehold.it/300/?text=book6','http://placehold.it/300/?text=book7','http://placehold.it/300/?text=book8',
-        'http://placehold.it/300/?text=book9', 'http://placehold.it/300/?text=book10','http://placehold.it/300/?text=book11','http://placehold.it/300/?text=book12',
-        'http://placehold.it/300/?text=book13', 'http://placehold.it/300/?text=book14','http://placehold.it/300/?text=book15','http://placehold.it/300/?text=book16',
-        'http://placehold.it/300/?text=book17','http://placehold.it/300/?text=book18','http://placehold.it/300/?text=book19','http://placehold.it/300/?text=book20',
-        'http://placehold.it/300/?text=book21','http://placehold.it/300/?text=book22','http://placehold.it/300/?text=book23','http://placehold.it/300/?text=book24',
-        'http://placehold.it/300/?text=book25','http://placehold.it/300/?text=book26','http://placehold.it/300/?text=book27','http://placehold.it/300/?text=book28',
-        'http://placehold.it/300/?text=book29','http://placehold.it/300/?text=book30',
+        'book1.jpg', 'book2.jpg', 'book3.jpg','book4.jpg',
+        'book5.jpg', 'book6.jpg','book7.jpg','book8.jpg',
+        'book9.jpg', 'book10.jpg','book11.jpg','book12.jpg',
+        'book13.jpg', 'book14.jpg','book15.jpg','book_black.png',
+        'book_blue.png','book_green.png','book_orange.png','book_purple.png',
+        'book_red.png','book_white.png','book_yellow.png','book_black.png',
+        'book_blue.png','book_green.png','book_orange.png','book_purple.png',
+        'book_red.png','book_white.png',
       ];
       $description = [
         'これは説明文です。',
