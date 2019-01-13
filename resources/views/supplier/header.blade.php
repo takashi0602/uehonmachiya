@@ -15,11 +15,11 @@
       <a class="nav-link" href="{{ url('/supplier/shipped') }}">出庫済み一覧</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('logout') }}"
+      <a class="nav-link" href="{{ url('/supplier/logout') }}"
          onclick="event.preventDefault();
          document.getElementById('logout-form').submit();">ログアウト
       </a>
-      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      <form id="logout-form" action="{{ url('/supplier/logout') }}" method="POST" style="display: none;">
         @csrf
       </form>
     </li>
