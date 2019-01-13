@@ -26,11 +26,11 @@ class SupplierCreatePost extends FormRequest
         return [
           'name' => 'required|string|max:50',
           'president' => 'required|string|max:50',
-          'sex' => 'required',
+          'email' => 'required|string|max:255|unique:suppliers',
           'postal' => 'required|string|digits:7',
           'address' => 'required|string|max:255',
           'tel' => 'string|digits_between:8,11',
-          'birth' => 'date'
+          'password' => 'nullable|min:6'
         ];
     }
 }

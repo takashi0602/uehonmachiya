@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Supplier;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\SupplierCreatePost;
 
 class SupplierController extends Controller
 {
@@ -22,9 +23,8 @@ class SupplierController extends Controller
     return view('admin.supplier.add');
   }
 
-  public function create(Request $request)
+  public function create(SupplierCreatePost $request)
   {
-    // TODO フォームリクエストでバリデーションチェック
     Supplier::create([
       'name' => $request->name,
       'president' => $request->president,

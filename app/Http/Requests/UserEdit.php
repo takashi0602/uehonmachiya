@@ -31,7 +31,7 @@ class UserEdit extends FormRequest
           'address' => 'required|string|max:255',
           'tel' => 'string|digits_between:8,11',
           'birth' => 'date',
-          'email' => 'required|string|max:100',
+          'email' => 'required|string|max:255|unique:users',
           'password' => 'nullable|min:6'
         ];
     }
