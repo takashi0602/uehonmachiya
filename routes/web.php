@@ -128,7 +128,15 @@ Route::prefix('supplier')->group(function () {
   Route::get('/login', 'Supplier\LoginController@supplierLoginForm');
   Route::post('/login', 'Supplier\LoginController@authenticate');
 
+  // ログアウト
   Route::post('/logout', 'Supplier\LoginController@logout');
+
+  // ユーザー情報
+  Route::get('/mypage', 'Supplier\MyPageController@index');
+
+  // ユーザー情報変更
+  Route::get('/mypage/edit', 'Supplier\MyPageController@edit');
+  Route::post('/mypage/edit/post', 'Supplier\MyPageController@post');
 
   // 発注一覧
   Route::get('/ordering', 'Supplier\OrderingController@index');

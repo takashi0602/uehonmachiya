@@ -46,7 +46,6 @@ class MyPageController extends Controller
         'name' => $request->name,
         'kana' => $request->kana,
         'sex' => $request->sex,
-        'email' => $request->email,
         'postal' => $request->postal,
         'address' => $request->address,
         'tel' => $request->tel,
@@ -56,6 +55,14 @@ class MyPageController extends Controller
       User::where('id', Auth::user()->id)->update([
         'password' => Hash::make($request->password)
       ]);
+    }
+    $nowEmail = User::where('id', Auth::user()->id)->first()->email;
+    if($request->email != $nowEmail) {
+      if(count(User::where('email', $request->email)->get()) == 0) {
+        User::where('id', Auth::user()->id)->update([
+          'email' => $request->email
+        ]);
+      }
     }
     return redirect('/mypage/edit');
   }

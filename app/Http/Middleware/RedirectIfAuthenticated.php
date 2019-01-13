@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
         switch ($guard) {
           case 'supplier':
             if (Auth::guard($guard)->check()) {
-              return redirect('/supplier/ordering');
+              return redirect('/supplier/mypage');
             }
             break;
           default:

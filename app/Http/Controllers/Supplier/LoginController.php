@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/supplier/ordering';
+    protected $redirectTo = '/supplier/mypage';
 
     /**
      * Create a new controller instance.
@@ -52,7 +52,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('supplier')->attempt($credentials)) {
-          return redirect('/supplier/ordering');
+          return redirect('/supplier/mypage');
         }
 
         return redirect()->back();

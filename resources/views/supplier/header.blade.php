@@ -1,4 +1,4 @@
-<div class="d-flex py-2">
+<div class="d-flex py-2 mx-3">
   <ul class="nav mr-auto">
     <li class="nav-item">
       <span class="nav-link h3">{{ $supplier_name }}</span>
@@ -6,7 +6,7 @@
   </ul>
   <ul class="nav ml-auto">
     <li class="nav-item">
-      <a class="nav-link" href="{{ url('') }}">ユーザ情報</a>
+      <a class="nav-link" href="{{ url('/supplier/mypage') }}">ユーザ情報</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ url('/supplier/ordering') }}">発注一覧</a>
