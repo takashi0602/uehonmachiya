@@ -14,7 +14,7 @@ class SuppliersTableSeeder extends Seeder
     public function run()
     {
         $name = [
-          '山田問屋', '田中問屋', '松田問屋'
+          '山田社', '田中社', '松田社'
         ];
 
         $president = [
