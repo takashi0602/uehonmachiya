@@ -104,6 +104,7 @@ Route::prefix('admin')->group(function () {
 
     // 在庫一覧
     Route::get('/stock', 'Admin\StockController@index');
+    Route::post('/stock', 'Admin\StockController@index');
 
     // 売り上げ一覧
     Route::get('/sales', 'Admin\SalesController@index');

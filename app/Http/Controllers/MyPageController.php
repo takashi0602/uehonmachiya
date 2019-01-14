@@ -10,6 +10,7 @@ use App\Models\Gift;
 use App\Http\Requests\UserEdit;
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Category;
 
 class MyPageController extends Controller
 {
@@ -82,6 +83,9 @@ class MyPageController extends Controller
         'name' => $product->name,
         'author' => $product->author,
         'description' => $product->description,
+        'category' => Category::where('id', $product->category_id)->first()->name,
+        'img' => $product->img,
+        'company' => $product->company,
         'price' => $product->sales_price,
         'total' => $product->sales_price * $order->amount,
         'status' => $order->status

@@ -12,7 +12,7 @@ class SupplierController extends Controller
 {
   public function index()
   {
-    $suppliers = Supplier::select("id", "name", "postal", "tel", "email", "president")->get();
+    $suppliers = Supplier::select("id", "name", "postal", "address", "tel", "email", "president")->get();
     return view('admin.supplier.index', [
       'suppliers' => $suppliers
     ]);

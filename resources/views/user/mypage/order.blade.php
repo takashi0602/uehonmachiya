@@ -19,7 +19,7 @@
           <td>{{ $d["date"] }}</td>
           <td>{{ $d["name"] }}</td>
           <td>{{ $d["amount"] }}冊</td>
-          <td>{{ $d["total"] }}</td>
+          <td>{{ $d["total"] }}円</td>
           <td>
             @if($d["status"])
               <span class="text-success">配送済み</span>
@@ -41,14 +41,17 @@
                 </button>
               </div>
               <div class="modal-body">
+                <div class="product-img mb-3" style="background-image: url('{{ asset('storage/' . $d["img"]) }}'); background-repeat: no-repeat; background-position: center;"></div>
                 <div>著者：{{ $d["author"] }}</div>
+                <div>出版社：{{ $d["company"] }}</div>
+                <div>ジャンル：{{ $d["category"] }}</div>
                 <div>
                   @isset($d["isbn"])
                     ISBN：{{ $d["isbn"] }}
                   @endisset
                 </div>
+                <div>説明</div>
                 <p class="mb-3">{{ $d["description"] }}</p>
-                <div class="mb-3 text-right">1冊：{{ $d["price"] }}円</div>
               </div>
             </div>
           </div>

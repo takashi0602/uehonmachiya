@@ -3,16 +3,18 @@
 <div>
     <h1>在庫一覧</h1>
     <div class="mb-4"> <!-- TODO:実装 -->
-        <form action="{{ url('/admin/stock/search') }}" method="post">
+        <form action="{{ url('/admin/stock') }}" method="post">
+            @csrf
             <div class="row">
-                <select name="" id=""class="form-control col-6 mx-3">
-                    <option>在庫状況</option>
-                    <option>○</option>
-                    <option>▲</option>
-                    <option>×</option>
-                    <option>○, ▲</option>
-                    <option>▲, ×</option>
-                    <option>○, ×</option>
+                <select class="form-control col-6 mx-3" name="status">
+                    <option value="0">在庫状況</option>
+                    <option value="1">○</option>
+                    <option value="2">▲</option>
+                    <option value="3">×</option>
+                    <option value="4">○, ▲</option>
+                    <option value="5">▲, ×</option>
+                    <option value="6">○, ×</option>
+                    <option value="7">○, ▲, ×</option>
                 </select>
                 <button type="submit" class="btn btn-primary col-auto">検索</button>
             </div>
