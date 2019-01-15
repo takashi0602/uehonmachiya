@@ -27,7 +27,7 @@ class ProductsTableSeeder extends Seeder
         '4088725093', '4088728408', '4088518314', '4088802640', '4088736230',
       ];
       $name = [
-        '羅生門', '火花', 'バッテリー','幻夏','下町ロケット','キングダム','テラフォーマーズ','暁のヨナ',
+        '羅生門・鼻', '火花', 'バッテリー','幻夏','下町ロケット','キングダム','テラフォーマーズ','暁のヨナ',
         '監獄学園','個人的な雑誌','俳句25年','日経ウーマン2018年','僕らが毎日やっている最強の読み方',
         'ハリー・ポッターと賢者の石','ハリー・ポッターと秘密の部屋','ハリー・ポッターとアズカバンの囚人',
         'ハリー・ポッターと炎のゴブレット㊤', 'ハリー・ポッターと炎のゴブレット㊦','ハリー・ポッターと不死鳥の騎士団㊤',
@@ -46,11 +46,11 @@ class ProductsTableSeeder extends Seeder
         'book1.jpg', 'book2.jpg', 'book3.jpg','book4.jpg',
         'book5.jpg', 'book6.jpg','book7.jpg','book8.jpg',
         'book9.jpg', 'book10.jpg','book11.jpg','book12.jpg',
-        'book13.jpg', 'book14.jpg','book15.jpg','book_black.png',
-        'book_blue.png','book_green.png','book_orange.png','book_purple.png',
-        'book_red.png','book_white.png','book_yellow.png','book_black.png',
-        'book_blue.png','book_green.png','book_orange.png','book_purple.png',
-        'book_red.png','book_white.png',
+        'book13.jpg', 'book14.jpg','book15.jpg','book16.jpg',
+        'book17.jpg','book18.jpg','book19.jpg','book20.jpg',
+        'book21.jpg','book22.jpg','book23.jpg','book24.png',
+        'book25.jpg','book26.jpg','book27.jpg','book28.jpg',
+        'book29.jpg','book30.jpg',
       ];
       $description = [
         'これは説明文です。',
