@@ -26,7 +26,7 @@
 <p class="text-success">{{ session('message')}}</p>
 @if($flag)
   @if(count($products))
-    <div class="mb-3">検索結果：{{ count($products) }}</div>
+    <div class="mb-3">検索結果：{{ count($products) }}件</div>
   @else
     <div class="mb-3">商品が見つかりません。</div>
   @endif
