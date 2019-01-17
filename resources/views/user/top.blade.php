@@ -2,7 +2,35 @@
 
 @section('content')
 <h1 class="mb-5">商品一覧</h1>
+<div>
+  <form action="{{ url('/') }}" method="post" class="mb-5">
+    @csrf
+    <div class="row">
+      <div class="col-sm-3 mb-3">
+        <select class="form-control" name="id">
+          <option value="0">ジャンル</option>
+          @foreach($genre as $item)
+            <option value="{{ $item->id }}">{{ $item->name }}</option>
+          @endforeach
+        </select>
+      </div>
+      <div class="col-sm-7 mb-3">
+        <input type="text" class="form-control" name="search" value="" placeholder="例：タイトル　ISBN　著者　出版社">
+      </div>
+      <div class="col-sm-auto">
+        <button type="submit" class="btn btn-primary">検索</button>
+      </div>
+    </div>
+  </form>
+</div>
 <p class="text-success">{{ session('message')}}</p>
+@if($flag)
+  @if(count($products))
+    <div class="mb-3">検索結果：{{ count($products) }}</div>
+  @else
+    <div class="mb-3">商品が見つかりません。</div>
+  @endif
+@endif
 <div class="d-flex flex-wrap justify-content-between">
   @foreach($products as $product)
     <div class="mx-4 product-cursor mb-5" data-toggle="modal" data-target="#Modal{{ $product->id }}">

@@ -155,6 +155,7 @@ Route::prefix('supplier')->group(function () {
 // 会員
 // トップ
 Route::get('/', 'TopController@index');
+Route::post('/', 'TopController@index');
 
 // ログイン
 Route::get('login', 'Auth\LoginController@userLoginForm')->name('login');
