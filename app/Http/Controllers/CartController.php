@@ -69,7 +69,9 @@ class CartController extends Controller
       ]);
     }
 
-    return redirect('/cart');
+    return redirect('/')->with('message', '商品をカートに入れました。');
+
+
   }
 
   public function delete(Request $request)

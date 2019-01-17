@@ -1,7 +1,8 @@
 @extends('user.layouts.app')
 
 @section('content')
-<h1>トップ</h1>
+<h1 class="mb-5">商品一覧</h1>
+<p class="text-success">{{ session('message')}}</p>
 <div class="d-flex flex-wrap justify-content-between">
   @foreach($products as $product)
     <div class="mx-4 product-cursor mb-5" data-toggle="modal" data-target="#Modal{{ $product->id }}">
