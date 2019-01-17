@@ -16,12 +16,12 @@ class ArrivalController extends Controller
       $suppliers = [];
       $products = [];
       $count = 0;
-      $arrivals = Arrival::select("id","supplier_id","product_id","arrival_id","amount","updated_at","status")->orderby('id', 'desc')->get();
+      $arrivals = Arrival::orderby('id', 'desc')->get();
       foreach ($arrivals as $arrival) {
-          $products[] = Product::select('name')->where('id', $arrival->product_id)->first();
+          $products[] = Product::where('id', $arrival->product_id)->first();
       }
       foreach ($arrivals as $arrival) {
-          $suppliers[] = Supplier::select('name')->where('id', $arrival->supplier_id)->first();
+          $suppliers[] = Supplier::where('id', $arrival->supplier_id)->first();
       }
       return view('admin.arrival.index', [
         'arrivals' => $arrivals,

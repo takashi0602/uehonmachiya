@@ -69,27 +69,43 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-3">入庫番号</div>
-                            <div class="col-9">{{ $arrival->id }}</div>
+                        <div class="row mb-3">
+                            <div class="col-auto">入庫番号</div>
+                            <div class="col-auto">{{ $arrival->id }}</div>
                         </div>
                         @if($arrival->status)
-                            <div class="row">
-                                <div class="col-3">入庫日</div>
-                                <div class="col-9">{{ $arrival->updated_at->format('Y/m/d') }}</div>
+                            <div class="row mb-3">
+                                <div class="col-auto">入庫日</div>
+                                <div class="col-auto">{{ $arrival->updated_at->format("Y/m/d") }}</div>
                             </div>
                         @endif
-                        <div class="row">
-                            <div class="col-3">入庫先</div>
-                            <div class="col-9">{{ $suppliers[$count]->name }}</div>
+                        <div class="row mb-3">
+                            <div class="col-auto">入庫先</div>
+                            <div class="col-auto">{{ $suppliers[$count]->name }}</div>
                         </div>
-                        <div class="row">
-                            <div class="col-3">商品名</div>
-                            <div class="col-9">{{ $products[$count++]->name }}</div>
+                        <div class="row mb-3">
+                            <div class="col-auto">郵便番号</div>
+                            <div class="col-auto">〒{{ $suppliers[$count]->postal }}</div>
                         </div>
-                        <div class="row">
-                            <div class="col-3">数量</div>
-                            <div class="col-9">{{ $arrival->amount }}冊</div>
+                        <div class="row mb-3">
+                            <div class="col-auto">住所</div>
+                            <div class="col-auto">{{ $suppliers[$count]->address }}</div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row mb-1">
+                                <div class="col-6">商品名</div>
+                                <div class="col-3">ISBN</div>
+                                <div class="col">発注数</div>
+                            </div>
+                            <div class="row mb-1">
+                                <div class="col-6">{{ $products[$count]->name }}</div>
+                                <div class="col-3">{{ $products[$count]->isbn }}</div>
+                                <div class="col">{{ $arrival->amount }}冊</div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-auto">仕入れ価格</div>
+                            <div class="col-auto">{{ $products[$count++]->price * $arrival->amount }}円</div>
                         </div>
                     </div>
                     <div class="modal-footer">

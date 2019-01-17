@@ -12,23 +12,26 @@ class OrderingController extends Controller
 {
   public function index()
   {
-    // 修正
-      $ordering = Ordering::select("id","product_id",'supplier_id',"ordering_id",'amount','created_at','status')->get();
-      $suppliers = [];
-      $products = [];
-      $count = 0;
-      foreach ($ordering as $order) {
-          $suppliers[] = Supplier::select('name')->where('id', $order->supplier_id)->first();
-      }
-      foreach ($ordering as $order)
-      {
-          $products[] = Product::select('name')->where('id', $order->product_id)->first();
+      $orderings = Ordering::all();
+      $data = [];
+      foreach ($orderings as $ordering) {
+          $supplier = Supplier::where('id', $ordering->supplier_id)->first();
+          $product = Product::where('id', $ordering->product_id)->first();
+          $data[] = [
+              'id' => $ordering->id,
+              'product_name' => $product->name,
+              'isbn' => $product->isbn,
+              'price' => $product->price,
+              'amount' => $ordering->amount,
+              'supplier_name' => $supplier->name,
+              'postal' => $supplier->postal,
+              'address' => $supplier->address,
+              'status' => $ordering->status,
+              'created_at' => $ordering->created_at
+          ];
       }
       return view('admin.ordering.index', [
-          'ordering' => $ordering,
-          'products' => $products,
-          'suppliers' => $suppliers,
-          'count' => $count
+          'data' => $data
       ]);
   }
 
