@@ -13,7 +13,7 @@ class TopController extends Controller
         $categories = [];
         $count = 0;
         $flag = false;
-        $products = Product::orderby('id', 'desc')->get();
+        $products = Product::orderby('id', 'desc')->paginate(15);
         if($request->id) {
             if($request->search) {
                 $products = Product::where('category_id', $request->id)
