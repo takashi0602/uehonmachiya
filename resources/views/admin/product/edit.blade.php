@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-    <h1>商品の変更</h1>
+    <h1>商品編集</h1>
     <form action="{{ url('/admin/product/edit') }}" method="post" enctype="multipart/form-data" class="mb-3">
         @csrf
         <div class="row mb-3">
