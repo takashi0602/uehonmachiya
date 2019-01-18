@@ -12,7 +12,7 @@ class CustomerController extends Controller
 {
   public function index()
   {
-    $customers = User::select("id","name","postal","address","email","email","birth","tel","sex","created_at")->get();
+    $customers = User::select("id","name","postal","address","email","email","birth","tel","sex","created_at")->paginate(20);
 
     foreach ($customers as $customer) {
       $customer["birth"] = Carbon::parse($customer->birth)->format("Y/m/d");

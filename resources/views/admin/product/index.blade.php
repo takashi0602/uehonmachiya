@@ -1,9 +1,36 @@
 @extends('admin.layouts.app')
 @section('content')
-<h1>商品一覧</h1>
-<div>
+<h1 class="mb-3">商品一覧</h1>
+<div class="mb-3">
+    <form action="{{ url('/admin/product') }}" method="get">
+        <div class="row">
+            <div class="col-sm-3 mb-3">
+                <select class="form-control" name="category">
+                    <option value="0">ジャンル</option>
+                    @foreach($genre as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-sm-7 mb-3">
+                <input type="text" class="form-control" name="search" value="" placeholder="例：タイトル　ISBN　著者　出版社" required>
+            </div>
+            <div class="col-sm-auto">
+                <button type="submit" class="btn btn-primary">検索</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="mb-2">
     <a href="{{ url('/admin/product/add') }}">商品の追加</a>
 </div>
+@if($flag)
+    @if(count($products))
+        <div class="mb-3">表示件数：{{ count($products) }}件</div>
+    @else
+        <div class="mb-3">商品が見つかりません。</div>
+    @endif
+@endif
 <div class="table-responsive">
     <table class="table">
         <thead class="text-nowrap">
@@ -16,7 +43,6 @@
             <th scope="col">仕入価格</th>
             <th scope="col">販売価格</th>
             <th scope="col">ジャンル</th>
-            <th scope="col">入庫先名</th>
             <th scope="col"></th>
             <th scope="col"></th>
         </tr>
@@ -32,7 +58,6 @@
                 <td>{{$product->price}}円</td>
                 <td>{{$product->sales_price}}円</td>
                 <td>{{ $categories[$count]->name }}</td>
-                <td>{{ $suppliers[$count]->name }}</td>
                 <td>
                     <a href="/admin/product/edit/{{ $product->id }}">編集</a>
                 </td>
@@ -111,5 +136,8 @@
         @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        <div>{{ $products->links() }}</div>
+    </div>
 </div>
 @endsection

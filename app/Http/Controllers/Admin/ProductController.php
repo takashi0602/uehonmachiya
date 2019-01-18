@@ -13,25 +13,50 @@ use App\Http\Requests\ProductEditPost;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $suppliers = [];
-        $categories = [];
+        $flag = false;
+        $suppliers = $categories = [];
         $count = 0;
-        $products = Product::all();
+        $genre = Category::all();
+        if($request->category) {
+            if($request->search) {
+                $products = Product::where('category_id', '=', $request->category)->where(function($query) use ($request) {
+                    $query->orWhere('name', 'like', '%' . $request->search . '%')
+                        ->orWhere('isbn', 'like', '%' . $request->search . '%')
+                        ->orWhere('author', 'like', '%' . $request->search . '%')
+                        ->orWhere('company', 'like', '%' . $request->search . '%');
+                })->paginate(20);
+            } else {
+                $products = Product::where('category_id', $request->category)
+                    ->paginate(20);
+            }
+            $flag = true;
+        } else {
+            if($request->search) {
+                $products = Product::where(function($query) use ($request) {
+                    $query->orWhere('name', 'like', '%' . $request->search . '%')
+                        ->orWhere('isbn', 'like', '%' . $request->search . '%')
+                        ->orWhere('author', 'like', '%' . $request->search . '%')
+                        ->orWhere('company', 'like', '%' . $request->search . '%');
+                })->paginate(20);
+                $flag = true;
+            } else {
+                $products = Product::paginate(20);
+            }
+        }
+        $products->withPath('/admin/product?category=' . urlencode($request->category) . '&search=' . urlencode($request->search));
         foreach ($products as $product) {
             $suppliers[] = Supplier::select('name')->where('id', $product->supplier_id)->first();
-        }
-        foreach ($products as $product)
-        {
             $categories[] = Category::select('name')->where('id', $product->category_id)->first();
         }
-
         return view('admin.product.index', [
             'products' => $products,
             'suppliers' => $suppliers,
             'categories' => $categories,
-            'count' => $count
+            'count' => $count,
+            'flag' => $flag,
+            'genre' => $genre
         ]);
     }
 
