@@ -12,7 +12,7 @@ class OrderingController extends Controller
 {
   public function index()
   {
-      $orderings = Ordering::all();
+      $orderings = Ordering::paginate(20);
       $data = [];
       foreach ($orderings as $ordering) {
           $supplier = Supplier::where('id', $ordering->supplier_id)->first();
@@ -31,7 +31,8 @@ class OrderingController extends Controller
           ];
       }
       return view('admin.ordering.index', [
-          'data' => $data
+          'data' => $data,
+          'orderings' => $orderings
       ]);
   }
 

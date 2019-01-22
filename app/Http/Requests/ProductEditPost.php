@@ -29,7 +29,7 @@ class ProductEditPost extends FormRequest
           'author' => 'required|string|max:50',
           'company' => 'required|string|max:50',
           'isbn' => 'nullable|string|max:13',
-          'description' => 'required|string|max:250',
+          'description' => 'required|string|max:500',
           'price' => 'required',
           'sales_price' => 'required',
           'safety' => 'required',

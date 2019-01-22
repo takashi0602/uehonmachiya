@@ -37,13 +37,16 @@
         <td>{{ $gift->point }}pt</td>
         <td>
           @if($gift->use_flag)
-            使用済み
+            <span class="text-secondary">使用済み</span>
           @else
-            未使用
+            <span class="text-success">未使用</span>
           @endif
         </td>
       </tr>
     @endforeach
     </tbody>
   </table>
+  <div class="d-flex justify-content-center">
+    <div>{{ $gifts->links() }}</div>
+  </div>
 @endsection

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Order;
+use App\Models\Shipment;
 use App\Models\Product;
 
 class SalesController extends Controller
@@ -12,18 +12,19 @@ class SalesController extends Controller
     public function index()
     {
         $data = [];
-        $orders = Order::orderby('id', 'desc')->get();
-        foreach ($orders as $order) {
-          $product = Product::where('id', $order->product_id)->first();
+        $shipments = Shipment::orderby('id', 'desc')->paginate(20);
+        foreach ($shipments as $shipment) {
+          $product = Product::where('id', $shipment->product_id)->first();
           $data[] = [
-            'created_at' => $order->created_at,
+            'created_at' => $shipment->created_at,
             'name' => $product->name,
-            'amount' => $order->amount,
-            'sales' => $product->sales_price * $order->amount
+            'amount' => $shipment->amount,
+            'sales' => $product->sales_price * $shipment->amount
           ];
         }
         return view('admin.sales', [
-          'data' => $data
+          'data' => $data,
+          'shipments' => $shipments
         ]);
 
     }

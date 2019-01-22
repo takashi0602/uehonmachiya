@@ -10,7 +10,7 @@ class GiftController extends Controller
 {
     public function index()
     {
-      $gifts = Gift::all();
+      $gifts = Gift::paginate(20);
       return view('admin.gift', [
         'gifts' => $gifts
       ]);

@@ -16,7 +16,7 @@ class ArrivalController extends Controller
       $suppliers = [];
       $products = [];
       $count = 0;
-      $arrivals = Arrival::orderby('id', 'desc')->get();
+      $arrivals = Arrival::orderby('id', 'desc')->paginate(20);
       foreach ($arrivals as $arrival) {
           $products[] = Product::where('id', $arrival->product_id)->first();
       }

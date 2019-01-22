@@ -21,4 +21,7 @@
     @endforeach
     </tbody>
 </table>
+<div class="d-flex justify-content-center">
+    <div>{{ $shipments->links() }}</div>
+</div>
 @endsection
